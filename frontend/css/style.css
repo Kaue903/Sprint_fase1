@@ -123,3 +123,33 @@
       .card-hover:hover .vitrine-img {
          transform: scale(1.05);
       }
+      
+
+   /* HERO PRINCIPAL */
+    .hero-main {
+    min-height: 100vh;
+    position: relative;
+    background: url('/imagens/MainIate.jpg') center / cover no-repeat;
+    color: white;
+}
+
+/* overlay escuro */
+.hero-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* ajuste aqui a opacidade */
+    z-index: 1;
+}
+
+/* conteúdo acima do overlay */
+.hero-main .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* SEÇÃO DE ALUGUEL */
+.aluguel-section {
+    min-height: 60vh;
+    background: #123; /* cor diferente do hero */
+}

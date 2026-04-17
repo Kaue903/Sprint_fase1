@@ -4,13 +4,14 @@
     <!-- Configurações básicas do documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa Frota — Locadora de Veículos</title>
+    <title>Wave Club — Locadora de Barcos e Navegação</title>
 
     <!-- Importação do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Importação de ícones (Font Awesome) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CSS personalizado -->
     <link href="../css/style.css" rel="stylesheet">
@@ -21,30 +22,56 @@
 <body>
 
 <!-- Navbar (menu superior) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container">
-        <!-- Nome da empresa -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-0">
+    <div class="container d-flex align-items-center">
+
+        <!-- Logo (sem alteração) -->
         <a class="navbar-brand fw-bold" href="index.html">
-            <i class="fas fa-car-side me-2"></i>Locadora Premium
+            <img src="/Imagens/logo.png" width="125px">
         </a>
 
-        <!-- Botão de área restrita -->
-        <div class="ms-auto">
-            <a href="login.html" class="btn btn-outline-light">
+        <!-- Menu central -->
+        <div class="d-flex justify-content-center align-items-center gap-5">
+        <a class="nav-link text-dark py-1 fs-5" href="index.html">Início</a>
+        <a class="nav-link text-dark py-1 fs-5" href="fleet.html">Quem Somos</a>
+        <a class="nav-link text-dark py-1 fs-5" href="services.html">Aluguel</a>
+        <a class="nav-link text-dark py-1 fs-5" href="contact.html">Avaliações</a>
+        <a class="nav-link text-dark py-1 fs-5" href="contact.html">Contato</a>
+    </div>
+
+        <!-- Botão direita -->
+        <div>
+            <a href="login.html" class="btn btn-outline-dark btn-sm fw-bold py-1 px-2">
                 <i class="fas fa-user-lock"></i> Área Restrita
             </a>
         </div>
+
     </div>
 </nav>
 
-<!-- Banner principal (hero) -->
-<div class="bg-dark text-white text-center py-5 hero-banner pb-5">
-    <div class="container py-4">
-        <h1 class="display-4 fw-bold mb-3">Alugue o veículo ideal para você</h1>
-        <p class="lead mb-4">Carros e motos revisados, com os melhores preços de mercado.</p>
+<!-- HERO PRINCIPAL -->
+<div class="hero hero-main d-flex align-items-center text-white text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Bem-vindo ao Wave Club</h1>
+        <p class="lead mb-4">
+            Sua melhor escolha para aluguel de barcos, lanchas e jet skis.
+            Explore a liberdade do mar com segurança e conforto.
+        </p>
+        <a href="fleet.html" class="btn btn-primary btn-lg fw-bold py-2 px-4">
+            <i class="fas fa-anchor me-2"></i>Explore Nosso Catálogo
+        </a>
     </div>
 </div>
 
+<!-- SEÇÃO DE ALUGUEL-->
+<section class="aluguel-section text-white text-center d-flex align-items-center">
+    <div class="container py-5">
+        <h1 class="display-4 fw-bold mb-3">Alugue e Aproveite o Barco Ideal Para Você</h1>
+        <p class="lead mb-4">
+            Barcos e embarcações revisadas, com os melhores preços do mercado.
+        </p>
+    </div>
+</section>
 <!-- Card de preços destacado -->
 <div class="container position-relative" style="margin-top: -40px; z-index: 10;">
     <div class="row justify-content-center">
@@ -52,26 +79,39 @@
             <div class="card shadow-lg border-0" style="border-radius: 12px;">
                 <div class="card-body p-4 d-flex justify-content-around align-items-center text-center">
 
-                    <!-- Preço dos carros -->
+                    <!-- Preço dos iates -->
                     <div>
                         <h6 class="text-muted text-uppercase fw-bold mb-1">
-                            <i class="fas fa-car text-primary me-1"></i>Carros
+                            <img src="/Imagens/iconIate.png" width="32"></i> Iates
                         </h6>
                         <h2 class="fw-bold text-dark mb-0">
-                            R$ 120 <small class="fs-6 text-muted fw-normal">/dia</small>
+                           A partir de R$ 120 <small class="fs-6 text-muted fw-normal">/dia</small>
                         </h2>
                     </div>
 
                     <!-- Linha divisória -->
                     <div class="border-start border-2" style="height: 50px;"></div>
 
-                    <!-- Preço de motos -->
+                    <!-- Preço de Jet Skis -->
                     <div>
                         <h6 class="text-muted text-uppercase fw-bold mb-1">
-                            <i class="fas fa-motorcycle text-primary me-1"></i>Motos
+                            <img src="/Imagens/IconJet.png" width="32"></i> Jet Skis
                         </h6>
                         <h2 class="fw-bold text-dark mb-0">
-                            R$ 65 <small class="fs-6 text-muted fw-normal">/dia</small>
+                            A partir de R$ 65 <small class="fs-6 text-muted fw-normal">/dia</small>
+                        </h2>
+                    </div>
+
+                    <!-- Linha divisória -->
+                    <div class="border-start border-2" style="height: 50px;"></div>
+
+                    <!-- Preço das Lanchas -->
+                    <div>
+                        <h6 class="text-muted text-uppercase fw-bold mb-1">
+                            <img src="/Imagens/IconLancha.png" width="32"></i> Lanchas
+                        </h6>
+                        <h2 class="fw-bold text-dark mb-0">
+                            A partir de R$ 65 <small class="fs-6 text-muted fw-normal">/dia</small>
                         </h2>
                     </div>
 
