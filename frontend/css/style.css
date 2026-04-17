@@ -1,148 +1,310 @@
-   /* ============================================================
-      ESTILOS GLOBAIS
-      Configurações base que afetam toda a aplicação.
-      O Bootstrap já cuida da maioria — aqui ficam os ajustes finos.
-      ============================================================ */
+/* ============================================================
+     ESTILOS GLOBAIS
+     Configurações base que afetam toda a aplicação.
+     O Bootstrap já cuida da maioria — aqui ficam os ajustes finos.
+     ============================================================ */
+/* ============================================================
+   SISTEMA DE TEMAS (PALETAS FORNECIDAS)
+   ============================================================= */
 
+:root {
+    /* Paleta Claro: #050C9C, #3572EF, #3ABEF9, #A7E6FF */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #050C9C;
+    --text-muted: #3572EF;
+    --accent: #3ABEF9;
+    --accent-soft: #A7E6FF;
+    --border: #e2e8f0;
+    --btn-bg: #3572EF;
+    --btn-hover: #050C9C;
+    --card-shadow: 0 10px 25px rgba(5, 12, 156, 0.08);
+}
 
-   body {
-      background-color: #f4f6f9;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
+[data-theme="dark"] {
+    /* Fundo AZUL ESCURO (única mudança solicitada) */
+    --bg-body: #0a1629;
+    --bg-card: #0f1e3a;
+    
+    /* Paleta Escuro original mantida */
+    --text-main: #BBE1FA;
+    --text-muted: #3282B8;
+    --accent: #3282B8;
+    --accent-soft: #1B262C;
+    --border: #3282B8;
+    --btn-bg: #3282B8;
+    --btn-hover: #BBE1FA;
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
 
-      /* Flexbox no body garante que o footer fique sempre no fundo, mesmo quando há pouco conteúdo da página */
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-   }
+/* ============================================================
+   ESTILOS GLOBAIS
+   ============================================================= */
 
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'DM Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    /* Flexbox no body garante que o footer fique sempre no fundo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-   /* ============================================================
-      TELA DE LOGIN
-      ============================================================ */
+/* ============================================================
+   TELA DE LOGIN (REFERÊNCIA MANTIDA)
+   ============================================================= */
 
-      /* Container centralizado com largura máxima para a tela de login */
-      .login-container {
-      max-width: 400px;
-      margin: 80px auto;
-      }
+.login-wrapper {
+    animation: fadeIn 0.6s ease-out;
+}
 
-      /* Cabeçalho azul dos cards de login */
-      .card-header-blue {
-         background-color: #0d6efd;
-         color: white;
-         font-weight: bold;
-      }
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+}
 
-      /* Caixa azul clara de informação (ex: credencias de teste) */
-      .info-box {
-         background-color: #e8f0fe;
-         border-radius: 6px;
-         padding: 15px;
-      }
+.back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
 
+.back-link:hover {
+    color: var(--accent);
+    opacity: 0.8;
+}
 
-   /* ============================================================
-      TABELA DO PAINEL ADMINISTRATIVO
-      ============================================================ */
+/* ============================================================
+   CARD DE LOGIN
+   ============================================================= */
 
-      /* Evita que os botõesde ação na tabela quebrem a linha de baixo */
-      .table-actions {
-         white-space: nowrap;
-      }
+.login-card {
+    background-color: var(--bg-card);
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease;
+}
 
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+}
 
-      /* Campo numérico compacto usado dentro da tabela */
-      .table-actions input [type="number"] {
-         width: 70px;
-         text-align: center;
-      }
+[data-theme="dark"] .card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
+.header-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
 
+.card-header-blue {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
 
-   /* ============================================================
-      IMAGENS DE VEÍCULOS
-      ============================================================ */
+/* ============================================================
+   THEME TOGGLE
+   ============================================================= */
 
-      /* Miniatura quadrada usadda na tabela do painel administrativo */
+.theme-toggle {
+    background: var(--accent-soft);
+    border: none;
+    color: var(--text-main);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
 
-      .admin-mini-img {
-         width: 60px;
-         height: 60px;
-      
+.theme-toggle:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
 
-      /* object-fit: cover recorta a imagem para preencher o esáço sem distorcer */
+[data-theme="light"] .fa-sun { display: block; }
+[data-theme="light"] .fa-moon { display: none; }
+[data-theme="dark"] .fa-sun { display: none; }
+[data-theme="dark"] .fa-moon { display: block; }
 
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background-color: #fff;
-      padding: 2px;
-      }
+/* ============================================================
+   FORMULÁRIO E INPUTS
+   ============================================================= */
 
+.card-body {
+    padding: 2rem;
+}
 
-   /* ============================================================
-      VITRINE PÚBLICA — HERO BANNER
-      Banner com imagem de fundo coberta por um gradiente escuro.
-      Isso garante que o texto branco seja legível sobre qualquer imagem.
-      ============================================================ */
-   .hero-banner {
-      background:
-         /* Gradiente semi-transparente por cima da imagem */
-         linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)),
-         /* Imagem de fundo carregada do Unsplash */
-         url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1920')
-         center / cover;
-   }
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
 
-   /* ============================================================
-      VITRINE PÚBLICA — CARDS DE VEÍCULOS
-      ============================================================ */
+.form-control {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: all 0.2s;
+}
 
-      /* Imagem dos cards com altura fixa para uniformidade visual */
+.form-control:focus {
+    background-color: var(--bg-card);
+    border-color: var(--accent);
+    color: var(--text-main);
+    box-shadow: 0 0 0 4px rgba(58, 190, 249, 0.1);
+}
 
-      .vitrine-img {
-         height: 240px;
-         width: 100%;
-         object-fit: cover;
-      }
+.form-control::placeholder {
+    color: #94a3b8;
+    opacity: 0.5;
+}
 
-      /* Card com animação de elevação ao passar o mouse */
-      
-      .card-hover {
-         transition: all 0.3s ease;
-         cursor: pointer;
-      }
+/* ============================================================
+   BOTÃO DE LOGIN
+   ============================================================= */
 
-      /* Ao passar o mouse: sobe o card e adiciona sombra mais forte */
-      .card-hover:hover {
-         transform: translateY(-8px);
-         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15)!important;
-      }
+.btn-login {
+    background-color: var(--btn-bg);
+    color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.85rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
 
-      /* Zoom leve na imagem sincronizado com o hover do card */
-      .card-hover:hover .vitrine-img {
-         transform: scale(1.05);
-      }
-      
+.btn-login:hover {
+    background-color: var(--btn-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-   /* HERO PRINCIPAL */
-    .hero-main {
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   DIVISOR E INFO BOX
+   ============================================================= */
+
+.form-divider {
+    border-top: 1px solid var(--border);
+    opacity: 0.5;
+}
+
+.info-box {
+    background-color: var(--accent-soft);
+    border: none !important;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    color: #3282B8;
+}
+
+.info-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   TABELA DO PAINEL ADMINISTRATIVO
+   ============================================================= */
+
+.table-actions {
+    white-space: nowrap;
+}
+
+.table-actions input[type="number"] {
+    width: 70px;
+    text-align: center;
+}
+
+/* ============================================================
+   IMAGENS DE VEÍCULOS
+   ============================================================= */
+
+.admin-mini-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 2px;
+}
+
+/* ============================================================
+   VITRINE PÚBLICA — HERO BANNER
+   ============================================================ */
+
+.hero-banner {
+    background:
+        linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)),
+        url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1920')
+        center / cover;
+}
+
+/* ============================================================
+   VITRINE PÚBLICA — CARDS DE VEÍCULOS
+   ============================================================= */
+
+.vitrine-img {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15)!important;
+}
+
+.card-hover:hover .vitrine-img {
+    transform: scale(1.05);
+}
+
+/* HERO PRINCIPAL */
+.hero-main {
     min-height: 90vh;
     position: relative;
     background: url('/imagens/MainIate.jpg') center / cover no-repeat;
     color: white;
 }
 
-/* overlay escuro */
 .hero-main::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5); /* ajuste aqui a opacidade */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-/* conteúdo acima do overlay */
 .hero-main .container {
     position: relative;
     z-index: 2;
@@ -151,5 +313,11 @@
 /* SEÇÃO DE ALUGUEL */
 .aluguel-section {
     min-height: 60vh;
-    background: #123; /* cor diferente do hero */
+    background: #123;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
