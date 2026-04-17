@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Locadora</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
+    <!-- CSS personalizado -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+
+    <!-- Ícone da aba -->
+    <link
+        rel="icon"
+        href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png"
+    >
+</head>
+<body>
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container mt-4 pb-4">
+        <!-- HEADER -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">
+                <i class="fas fa-tachometer-alt me-2 text-primary"></i>
+                Painel de Controle
+            </h2>
+
+            <div>
+                <span class="badge bg-dark fs-6 p-2 shadow-sm">
+                    <i class="fas fa-user-circle me-1"></i>
+                    <span id="userNameDisplay">Admin Estático</span>
+                </span>
+
+                <button class="btn btn-outline-danger btn-sm ms-2">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+
+                <a href="index.html" class="btn btn-outline-secondary btn-sm ms-1">
+                    <i class="fas fa-external-link-alt"></i> Ver Site
+                </a>
+            </div>
+        </div>
+
+        <!-- LINHA DOS CARDS -->
+        <div class="row g-4 mb-4">
+            <!-- CARD ADICIONAR VEÍCULO -->
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 border-top border-primary border-3 h-100">
+                    <div class="card-header bg-white fw-bold py-3">
+                        <i class="fas fa-plus-circle text-primary me-1"></i>
+                        Adicionar Veículo
+                    </div>
+
+                    <div class="card-body">
+                        <form id="formAddVeiculo">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-semibold text-muted">
+                                        Modelo
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modelo"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-semibold text-muted">
+                                        Placa
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="placa"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-semibold text-muted">
+                                        Tipo
+                                    </label>
+                                    <select class="form-select" id="tipo" required>
+                                        <option value="Carro">Carro</option>
+                                        <option value="Moto">Moto</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label small fw-semibold text-muted">
+                                        Foto
+                                    </label>
+                                    <input
+                                        type="file"
+                                        class="form-control"
+                                        id="imagem"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">
+                                <i class="fas fa-save me-1"></i>
+                                Cadastrar Veículo (Estático)
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD PREVISÃO -->
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 border-top border-info border-3 h-100">
+                    <div class="card-header bg-white fw-bold py-3">
+                        <i class="fas fa-calculator text-info me-1"></i>
+                        Calcular Previsão
+                    </div>
+
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">
+                                Tipo
+                            </label>
+                            <select class="form-select" id="simTipo">
+                                <option value="Carro">Carro</option>
+                                <option value="Moto">Moto</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small text-muted">
+                                Dias
+                            </label>
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="simDias"
+                                value="1"
+                                min="1"
+                            >
+                        </div>
+
+                        <button class="btn btn-info text-white w-100 fw-bold">
+                            Gerar Orçamento (Estático)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABELA -->
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-dark text-white fw-semibold py-3">
+                <i class="fas fa-list me-1"></i>
+                Frota
+            </div>
+
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-3">Foto</th>
+                                <th>Tipo</th>
+                                <th>Modelo</th>
+                                <th>Placa</th>
+                                <th>Status</th>
+                                <th class="text-end pe-4">Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Sandero.png"
+                                        class="admin-mini-img"
+                                        alt="Sandero"
+                                    >
+                                </td>
+                                <td>Carro</td>
+                                <td>Sandero</td>
+                                <td>FMA-6680</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="modalEditarVeiculo" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title fw-bold">
+                            <i class="fas fa-edit me-1"></i>
+                            Editar Veículo
+                        </h5>
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                        ></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Nesta fase o formulário é apenas visual</p>
+
+                        <input
+                            type="text"
+                            class="form-control mb-3"
+                            placeholder="Modelo"
+                        >
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Placa"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
