@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
     <!-- Configurações básicas do documento -->
     <meta charset="UTF-8">
@@ -22,27 +22,33 @@
 <body>
 
 <!-- Navbar (menu superior) -->
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-0">
-    <div class="container d-flex align-items-center">
+<nav class="navbar navbar-expand-lg shadow-sm py-2">
+    <div class="container d-flex align-items-center justify-content-between">
 
-        <!-- Logo (sem alteração) -->
+        <!-- Logo -->
         <a class="navbar-brand fw-bold" href="index.html">
-            <img src="/Imagens/logo.png" width="125px">
+            <img src="/Imagens/logo.png" width="125px" alt="Wave Club">
         </a>
 
         <!-- Menu central -->
-        <div class="d-flex justify-content-center align-items-center gap-5">
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="index.html">Início</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="fleet.html">Quem Somos</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="services.html">Aluguel</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#avaliacoes">Avaliações</a>
-    <a class="nav-link text-dark py-1 fs-5 nav-underline" href="contact.html">Contato</a>
-    </div>
+        <div class="d-none d-lg-flex justify-content-center align-items-center gap-4">
+            <a class="nav-link py-1 fs-6 nav-underline" href="index.html">Início</a>
+            <a class="nav-link py-1 fs-6 nav-underline" href="fleet.html">Quem Somos</a>
+            <a class="nav-link py-1 fs-6 nav-underline" href="services.html">Aluguel</a>
+            <a class="nav-link py-1 fs-6 nav-underline" href="#avaliacoes">Avaliações</a>
+            <a class="nav-link py-1 fs-6 nav-underline" href="contact.html">Contato</a>
+        </div>
 
-        <!-- Botão direita -->
-        <div>
-            <a href="login.html" class="btn btn-outline-dark btn-sm fw-bold py-1 px-2">
-                <i class="fas fa-user-lock"></i> Área Restrita
+        <!-- Botões Direita (Toggle + Login) -->
+        <div class="d-flex align-items-center gap-3">
+            <!-- Botão de Alternância de Tema -->
+            <button id="theme-toggle" class="theme-toggle" title="Alternar Tema">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+
+            <a href="login.html" class="btn btn-outline-primary btn-sm fw-bold py-2 px-3">
+                <i class="fas fa-user-lock me-1"></i> Área Restrita
             </a>
         </div>
 
@@ -98,44 +104,47 @@
 <!-- Card de preços destacado -->
 <div class="container position-relative" style="margin-top: -40px; z-index: 10;">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
+        <div class="col-md-10 col-lg-8">
             <div class="card shadow-lg border-0" style="border-radius: 12px;">
-                <div class="card-body p-4 d-flex justify-content-around align-items-center text-center">
+                <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-around align-items-center text-center gap-4">
 
                     <!-- Preço dos iates -->
                     <div>
                         <h6 class="text-muted text-uppercase fw-bold mb-1">
-                            <img src="/Imagens/iconIate.png" width="32"></i> Iates
+                            <img src="/Imagens/iconIate.png" width="32"> Iates
                         </h6>
-                        <h2 class="fw-bold text-dark mb-0">
-                           A partir de R$10.000 <small class="fs-6 text-muted fw-normal">/dia</small>
+                        <h2 class="fw-bold mb-0">
+                           A partir de R$10.000
                         </h2>
+                        <small class="text-muted">/dia</small>
                     </div>
 
                     <!-- Linha divisória -->
-                    <div class="border-start border-2" style="height: 50px;"></div>
+                    <div class="d-none d-md-block border-start border-2" style="height: 50px;"></div>
 
                     <!-- Preço de Jet Skis -->
                     <div>
                         <h6 class="text-muted text-uppercase fw-bold mb-1">
-                            <img src="/Imagens/IconJet.png" width="32"></i> Jet Skis
+                            <img src="/Imagens/IconJet.png" width="32"> Jet Skis
                         </h6>
-                        <h2 class="fw-bold text-dark mb-0">
-                            A partir de R$800 <small class="fs-6 text-muted fw-normal">/dia</small>
+                        <h2 class="fw-bold mb-0">
+                            A partir de R$800
                         </h2>
+                        <small class="text-muted">/dia</small>
                     </div>
 
                     <!-- Linha divisória -->
-                    <div class="border-start border-2" style="height: 50px;"></div>
+                    <div class="d-none d-md-block border-start border-2" style="height: 50px;"></div>
 
                     <!-- Preço das Lanchas -->
                     <div>
                         <h6 class="text-muted text-uppercase fw-bold mb-1">
-                            <img src="/Imagens/IconLancha.png" width="32"></i> Lanchas
+                            <img src="/Imagens/IconLancha.png" width="32"> Lanchas
                         </h6>
-                        <h2 class="fw-bold text-dark mb-0">
-                            A partir de R$2.500 <small class="fs-6 text-muted fw-normal">/dia</small>
+                        <h2 class="fw-bold mb-0">
+                            A partir de R$2.500
                         </h2>
+                        <small class="text-muted">/dia</small>
                     </div>
 
                 </div>
@@ -151,13 +160,13 @@
     </h2>
 
     <!-- Barra de status e filtros -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center bg-white p-3 rounded shadow-sm border mb-4 gap-3">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-3 rounded shadow-sm border mb-4 gap-3 bg-white">
 
         <!-- Contadores de veículos -->
         <div>
-            <span class="badge bg-secondary fs-6 shadow-sm" id="countTotal">Total: 10</span>
-            <span class="badge bg-success fs-6 me-2 shadow-sm" id="countDisponiveis">Disponíveis: 1</span>
-            <span class="badge bg-danger fs-6 me-2 shadow-sm" id="countIndisponiveis">Alugados: 1</span>
+            <span class="badge bg-secondary fs-6 shadow-sm" id="countTotal">Total: 9</span>
+            <span class="badge bg-success fs-6 me-2 shadow-sm" id="countDisponiveis">Disponíveis: 6</span>
+            <span class="badge bg-danger fs-6 me-2 shadow-sm" id="countIndisponiveis">Alugados: 3</span>
         </div>
 
         <!-- Botões de filtro -->
@@ -174,129 +183,174 @@
     </div>
 
     <!-- Grid de veículos -->
-    <div class="container my-5">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-            <!-- CARD 1 -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-
-                    <div class="position-relative" style="height:400px;">
-                        <img src="../../Imagens/Jet4.png" class="w-100 h-100" style="object-fit:cover;">
-                        <span class="badge bg-warning position-absolute top-0 end-0 m-2">Exclusivo</span>
+        <!-- CARD 1 - JET SKI -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/Jet4.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-warning position-absolute top-0 end-0 m-2">Exclusivo</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/IconJet.png" width="28"> HydraJet X</h5>
+                    <div class="mb-2">
+                        <span class="text-muted text-decoration-line-through me-2">R$ 2.500</span>
+                        <span class="fw-bold text-success fs-5">R$ 2.000/diária</span>
                     </div>
-
-                    <div class="card-body d-flex flex-column">
-
-                        <h5 class="fw-bold">
-                            <img src="/Imagens/IconJet.png" width="28"> HydraJet X
-                        </h5>
-
-                        <!-- Preço destacado -->
-                        <div class="mb-2">
-                            <span class="text-muted text-decoration-line-through me-2">
-                                R$ 2.500
-                            </span>
-                            <span class="fw-bold text-success fs-5">
-                                R$ 2.000/diária
-                            </span>
-                        </div>
-
-                        <p class="small text-muted mb-1">Pessoas: 1 a 2</p>
-                        <p class="small text-muted mb-1">Modelo: 2024</p>
-                        <p class="small text-muted mb-1">Incluso: Limpeza</p>
-                        <p class="small text-muted mb-3">Combustível: R$70–110/h</p>
-
-                        <span class="badge bg-light text-dark border mb-3">Tipo: Jet Ski</span>
-
-                        <div class="mt-auto">
-                            <button class="btn btn-primary w-100"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalInteresse">
-                                Tenho Interesse
-                            </button>
-                        </div>
-
+                    <p class="small text-muted mb-3">Pessoas: 1 a 2 | Modelo: 2024 | Combustível: R$70–110/h</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
                     </div>
                 </div>
             </div>
-
-            <!-- CARD 2 -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="position-relative" style="height:400px;">
-                        <img src="../../Imagens/iATE2.png" class="w-100 h-100" style="object-fit:cover;">
-                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-                    </div>
-
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="fw-bold"><img src="/Imagens/iconIate.png" width="28"> Azimut 27 Metri</h5>
-
-                        <!-- Preço destacado -->
-                        <div class="mb-2">
-                            <span class="fw-bold text-success fs-5">
-                                R$ 15.000/diária
-                            </span>
-                        </div>
-
-                        <p class="small text-muted mb-1"> Pessoas: até 16</p>
-                        <p class="small text-muted mb-1"> Modelo: 2021</p>
-                        <p class="small text-muted mb-1"> Incluso: Suítes + jacuzzi</p>
-                        <p class="small text-muted mb-3"> Combustível não incluso</p>
-
-                        <span class="badge bg-light text-dark border mb-3">Tipo: Iate</span>
-
-                        <div class="mt-auto">
-                            <button class="btn btn-primary w-100"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalInteresse">
-                                Tenho Interesse
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 9 -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="position-relative" style="height:400px;">
-                        <img src="../../Imagens/lancha2.png" class="w-100 h-100" style="object-fit:cover;">
-                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-                    </div>
-
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="fw-bold">Lancha Yacxo 357</h5>
-
-                        <!-- Preço destacado -->
-                        <div class="mb-2">
-                            <span class="fw-bold text-success fs-5">
-                                R$ 5.200/diária
-                            </span>
-                        </div>
-
-                        <p class="small text-muted mb-1"> Pessoas: 12 pessoas</p>
-                        <p class="small text-muted mb-1"> Modelo: 2011</p>
-                        <p class="small text-muted mb-1"> Incluso: Ar-condicionado, cabines para 6 pessoas e
-                            cozinha completa.</p>
-                        <p class="small text-muted mb-3"> Combustível incluso</p>
-
-                        <span class="badge bg-light text-dark border mb-3">Tipo: Lancha</span>
-
-                        <div class="mt-auto">
-                            <button class="btn btn-primary w-100"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalInteresse">
-                                Tenho Interesse
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
 
+        <!-- CARD 2 - IATE -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/iATE2.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/iconIate.png" width="28"> Azimut 27 Metri</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 15.000/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: até 16 | Modelo: 2021 | Suítes + jacuzzi</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 - LANCHA -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/lancha2.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold">Lancha Yacxo 357</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 5.200/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 12 | Modelo: 2011 | Cabines + Cozinha</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 - JET SKI -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/Jet1.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/IconJet.png" width="28"> Sea-Doo Spark</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 850/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 2 | Modelo: 2023 | Econômico e Ágil</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-secondary w-100" disabled>Indisponível</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 5 - IATE -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/iATE1.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/iconIate.png" width="28"> Ferretti 780</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 12.500/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 12 | Modelo: 2022 | Design Italiano</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 6 - LANCHA -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/lancha1.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold">Lancha Phantom 303</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 3.800/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 10 | Modelo: 2020 | Conforto e Lazer</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 7 - JET SKI -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/Jet2.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/IconJet.png" width="28"> Yamaha VX Deluxe</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 950/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 3 | Modelo: 2023 | Estabilidade e Som</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalInteresse">Tenho Interesse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 8 - IATE -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/iATE3.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold"><img src="/Imagens/iconIate.png" width="28"> Princess Y85</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 18.000/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 18 | Modelo: 2021 | Máximo Luxo</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-secondary w-100" disabled>Indisponível</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 9 - LANCHA -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 card-hover">
+                <div class="position-relative" style="height:300px;">
+                    <img src="../../Imagens/lancha3.png" class="w-100 h-100" style="object-fit:cover;">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="fw-bold">Lancha Coral 34</h5>
+                    <div class="mb-2"><span class="fw-bold text-success fs-5">R$ 4.500/diária</span></div>
+                    <p class="small text-muted mb-3">Pessoas: 12 | Modelo: 2019 | Espaçosa e Moderna</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-secondary w-100" disabled>Indisponível</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <!-- Modal de interesse -->
@@ -347,113 +401,78 @@
     </div>
 </div>
 
-<!-- AVALIAÇÕES CARROSSEL (MELHORADO) -->
+<!-- AVALIAÇÕES CARROSSEL -->
 <section id="avaliacoes" class="avaliacoes-section">
     <div class="container position-relative">
         <div class="text-center mb-5">
-            <h2 class="fw-bold avaliacoes-title">
-                <i class="fas fa-star me-2"></i>
-                O que dizem nossos navegantes
-            </h2>
-            <p class="avaliacoes-subtitle">
-                A satisfação dos nossos clientes é o que nos move. Confira algumas experiências reais vividas com a Wave Club.
-            </p>
+            <h2 class="fw-bold">O que dizem nossos navegantes</h2>
+            <p class="text-muted">A satisfação dos nossos clientes é o que nos move.</p>
         </div>
-
+        
         <div id="carouselAvaliacoes" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner px-lg-5">
-
                 <!-- Slide 1 -->
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="5000">
                     <div class="row g-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="img-cliente" alt="Carlos Eduardo">
-                                <h5 class="nome-cliente">Carlos Eduardo</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "Atendimento excelente e embarcação impecável. O iate estava em perfeitas condições e a equipe foi muito prestativa."
-                                </p>
+                        <div class="col-12 col-md-4">
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Carlos">
+                                <h5 class="fw-bold">Carlos Eduardo</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="small opacity-75">"Atendimento excelente e embarcação impecável. Experiência nota 10!"</p>
                             </div>
                         </div>
-
                         <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="img-cliente" alt="Mariana Souza">
-                                <h5 class="nome-cliente">Mariana Souza</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "Serviço organizado e seguro. Alugamos uma lancha para o aniversário do meu filho e foi tudo perfeito. Recomendo!"
-                                </p>
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Mariana">
+                                <h5 class="fw-bold">Mariana Souza</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="small opacity-75">"Serviço organizado e seguro. Recomendo a todos que buscam lazer!"</p>
                             </div>
                         </div>
-
                         <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/men/51.jpg" class="img-cliente" alt="Ricardo Lima">
-                                <h5 class="nome-cliente">Ricardo Lima</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "Jet ski novíssimo e muito potente! A burocracia foi mínima e o suporte na marina foi nota 10. Voltarei com certeza."
-                                </p>
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/men/51.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Ricardo">
+                                <h5 class="fw-bold">Ricardo Lima</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="small opacity-75">"Jet ski novíssimo e suporte impecável na marina. Voltarei sempre."</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Slide 2 -->
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="5000">
                     <div class="row g-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/women/12.jpg" class="img-cliente" alt="Patrícia Gomes">
-                                <h5 class="nome-cliente">Patrícia Gomes</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "Experiência premium do início ao fim! O passeio de iate ao pôr do sol foi um dos momentos mais marcantes da nossa viagem."
-                                </p>
+                        <div class="col-12 col-md-4">
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Patricia">
+                                <h5 class="fw-bold">Patrícia Gomes</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="small opacity-75">"Um dia inesquecível no mar! O iate superou todas as expectativas."</p>
                             </div>
                         </div>
-
                         <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/men/77.jpg" class="img-cliente" alt="Lucas Martins">
-                                <h5 class="nome-cliente">Lucas Martins</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "Melhor locadora náutica da região. Frota diversificada e preços justos. O sistema de reserva online facilita muito."
-                                </p>
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/men/77.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Lucas">
+                                <h5 class="fw-bold">Lucas Martins</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="small opacity-75">"Melhor custo-benefício da região. Atendimento muito ágil e cordial."</p>
                             </div>
                         </div>
-                        
                         <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao">
-                                <img src="https://randomuser.me/api/portraits/women/28.jpg" class="img-cliente" alt="Fernanda Lima">
-                                <h5 class="nome-cliente">Fernanda Lima</h5>
-                                <div class="estrelas">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <p class="texto-avaliacao">
-                                    "A equipe é super atenciosa e os barcos são muito bem cuidados. Tivemos um dia maravilhoso em família no mar."
-                                </p>
+                            <div class="card-avaliacao text-center h-100">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Fernanda">
+                                <h5 class="fw-bold">Fernanda Lima</h5>
+                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                <p class="small opacity-75">"Equipe nota mil! Tivemos um passeio de lancha fantástico em família."</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <!-- Controles -->
+            
+            <!-- Controles do Carrossel (Setas) -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvaliacoes" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
@@ -466,76 +485,65 @@
     </div>
 </section>
 
-<!-- FOOTER (RODAPÉ) -->
+<!-- FOOTER -->
 <footer class="footer-main">
     <div class="container">
         <div class="row g-5">
-            
-            <!-- Coluna 1: Sobre Nós -->
             <div class="col-lg-4 col-md-6 footer-about">
                 <h5 class="footer-title">Wave Club</h5>
-                <p>
-                    Desde 2015, a Wave Club transforma o sonho de navegar em realidade. Oferecemos a melhor frota de embarcações de luxo e lazer, com foco total na segurança, conforto e experiências inesquecíveis para nossos clientes.
-                </p>
-                <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <p>Desde 2015, transformando o sonho de navegar em realidade com segurança e luxo.</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-
-            <!-- Coluna 2: Links Rápidos -->
-            <div class="col-lg-2 col-md-6 footer-links">
-                <h5 class="footer-title">Links Rápidos</h5>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="fleet.html">Quem Somos</a></li>
-                    <li><a href="services.html">Aluguel</a></li>
-                    <li><a href="#avaliacoes">Avaliações</a></li>
-                    <li><a href="contact.html">Contato</a></li>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-title">Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-white-50">Início</a></li>
+                    <li><a href="#" class="text-decoration-none text-white-50">Aluguel</a></li>
+                    <li><a href="#" class="text-decoration-none text-white-50">Contato</a></li>
                 </ul>
             </div>
-
-            <!-- Coluna 3: Contato Rápido -->
-            <div class="col-lg-3 col-md-6 footer-links">
-                <h5 class="footer-title">Onde Estamos</h5>
-                <ul>
-                    <li><a href="#"><i class="fas fa-map-marker-alt me-2 text-info"></i> Marina Central, Bloco A, SP</a></li>
-                    <li><a href="tel:+5511999999999"><i class="fas fa-phone me-2 text-info"></i> (11) 99999-9999</a></li>
-                    <li><a href="mailto:contato@waveclub.com.br"><i class="fas fa-envelope me-2 text-info"></i> contato@waveclub.com.br</a></li>
-                    <li><a href="#"><i class="fas fa-clock me-2 text-info"></i> Seg - Dom: 08h às 19h</a></li>
-                </ul>
-            </div>
-
-            <!-- Coluna 4: Formulário de Contato -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="footer-title">Envie uma Mensagem</h5>
-                <form class="footer-contact-form" action="#" method="POST">
-                    <input type="text" class="form-control" placeholder="Seu Nome" required>
-                    <input type="email" class="form-control" placeholder="Seu E-mail" required>
-                    <textarea class="form-control" rows="3" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit" class="btn btn-footer-send">
-                        Enviar Agora <i class="fas fa-paper-plane ms-2"></i>
-                    </button>
+                <h5 class="footer-title">Contato</h5>
+                <p class="text-white-50 mb-1"><i class="fas fa-phone me-2"></i> (11) 99999-9999</p>
+                <p class="text-white-50"><i class="fas fa-envelope me-2"></i> contato@waveclub.com.br</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Mensagem</h5>
+                <form class="footer-contact-form">
+                    <input type="text" class="form-control mb-2" placeholder="Nome">
+                    <textarea class="form-control mb-2" rows="2" placeholder="Mensagem"></textarea>
+                    <button type="submit" class="btn btn-footer-send">Enviar</button>
                 </form>
             </div>
-
         </div>
-
-        <!-- Linha Final: Direitos Autorais -->
-        <div class="footer-bottom">
-            <p class="mb-0">
-                &copy; 2026 Wave Club — Todos os direitos reservados. 
-                <br>
-                <small class="opacity-50">Desenvolvido com foco em excelência náutica.</small>
-            </p>
+        <div class="footer-bottom mt-5 pt-3 border-top border-secondary text-center">
+            <p class="text-white-50 mb-0">&copy; 2026 Wave Club — Todos os direitos reservados.</p>
         </div>
     </div>
 </footer>
 
-<!-- Script do Bootstrap (JS) -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    // Lógica de Alternância de Tema Escuro/Claro
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+</script>
 
 </body>
 </html>
