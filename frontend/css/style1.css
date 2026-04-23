@@ -1,0 +1,186 @@
+/* ============================================================
+   SISTEMA DE TEMAS (PALETAS FORNECIDAS)
+   ============================================================= */
+
+:root {
+    /* Paleta Claro: #050C9C, #3572EF, #3ABEF9, #A7E6FF */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #050C9C;
+    --text-muted: #3572EF;
+    --accent: #3ABEF9;
+    --accent-soft: #A7E6FF;
+    --border: #e2e8f0;
+    --btn-bg: #3572EF;
+    --btn-hover: #050C9C;
+    --card-shadow: 0 10px 25px rgba(5, 12, 156, 0.08);
+}
+
+[data-theme="dark"] {
+    /* Fundo AZUL ESCURO (única mudança solicitada) */
+    --bg-body: #0a1629;
+    --bg-card: #0f1e3a;
+    
+    /* Paleta Escuro original mantida */
+    --text-main: #BBE1FA;
+    --text-muted: #3282B8;
+    --accent: #3282B8;
+    --accent-soft: #1B262C;
+    --border: #3282B8;
+    --btn-bg: #3282B8;
+    --btn-hover: #BBE1FA;
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+    background: var(--bg-body);
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+/* =========================
+   HEADER
+========================= */
+h2 {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+/* bordas superiores custom */
+.border-primary {
+    border-color: var(--accent) !important;
+}
+.border-info {
+    border-color: var(--text-muted) !important;
+}
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-main);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(58, 190, 249, 0.2);
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.btn-primary {
+    background: var(--btn-bg);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--btn-hover);
+}
+
+.btn-info {
+    background: var(--accent);
+    border: none;
+}
+
+.btn-info:hover {
+    opacity: 0.9;
+}
+
+/* =========================
+   BADGES
+========================= */
+.badge.bg-success {
+    background: #22c55e !important;
+}
+
+.badge.bg-danger {
+    background: #ef4444 !important;
+}
+
+/* =========================
+   TABELA
+========================= */
+.table {
+    color: var(--text-main);
+}
+
+.table thead {
+    background: var(--accent-soft);
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(58, 190, 249, 0.08);
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+/* =========================
+   IMAGEM MINI
+========================= */
+.admin-mini-img {
+    width: 60px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal-content {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 14px;
+}
+
+/* =========================
+   DARK MODE AJUSTES
+========================= */
+[data-theme="dark"] .card-header {
+    border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .table thead {
+    background: #1b2a4a;
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover {
+    background: rgba(255,255,255,0.05);
+}

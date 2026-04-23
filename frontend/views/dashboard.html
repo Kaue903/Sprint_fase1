@@ -19,7 +19,7 @@
     >
 
     <!-- CSS personalizado -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style1.css" rel="stylesheet">
     <link href="../css/dashboard.css" rel="stylesheet">
 
     <!-- Ícone da aba -->
@@ -34,14 +34,16 @@
         <!-- HEADER -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0">
-                <i class="fas fa-tachometer-alt me-2 text-primary"></i>
-                Painel de Controle
+                <!-- Logo (sem alteração) -->
+            <a class="navbar-brand fw-bold" href="index.html">
+            <img src="/Imagens/logo.png" width="125px">
+                Painel de Controle - Wave Club
             </h2>
 
             <div>
                 <span class="badge bg-dark fs-6 p-2 shadow-sm">
                     <i class="fas fa-user-circle me-1"></i>
-                    <span id="userNameDisplay">Admin Estático</span>
+                    <span id="userNameDisplay">Administrador </span>
                 </span>
 
                 <button class="btn btn-outline-danger btn-sm ms-2">
@@ -61,7 +63,7 @@
                 <div class="card shadow-sm border-0 border-top border-primary border-3 h-100">
                     <div class="card-header bg-white fw-bold py-3">
                         <i class="fas fa-plus-circle text-primary me-1"></i>
-                        Adicionar Veículo
+                        Adicionar Veículo Marítimo 
                     </div>
 
                     <div class="card-body">
@@ -69,7 +71,7 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label small fw-semibold text-muted">
-                                        Modelo
+                                        Modelo:
                                     </label>
                                     <input
                                         type="text"
@@ -81,7 +83,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label small fw-semibold text-muted">
-                                        Placa
+                                        Incluso:
                                     </label>
                                     <input
                                         type="text"
@@ -95,11 +97,12 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label small fw-semibold text-muted">
-                                        Tipo
+                                        Tipo:
                                     </label>
                                     <select class="form-select" id="tipo" required>
-                                        <option value="Carro">Carro</option>
-                                        <option value="Moto">Moto</option>
+                                        <option value="Iate">Iate</option>
+                                        <option value="Jet Ski">Jet Ski</option>
+                                        <option value="Lancha">Lancha</option>
                                     </select>
                                 </div>
 
@@ -139,8 +142,9 @@
                                 Tipo
                             </label>
                             <select class="form-select" id="simTipo">
-                                <option value="Carro">Carro</option>
-                                <option value="Moto">Moto</option>
+                                <option value="Iate">Iate</option>
+                                <option value="Jet Ski">Jet Ski</option>
+                                <option value="Lancha">Lancha</option>
                             </select>
                         </div>
 
@@ -157,8 +161,21 @@
                             >
                         </div>
 
+                        <div class="mb-4">
+                            <label class="form-label small text-muted">
+                                Preço por Dia (R$)
+                            </label>
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="simPreco"
+                                value="1"
+                                min="1"
+                            >
+                        </div>
+
                         <button class="btn btn-info text-white w-100 fw-bold">
-                            Gerar Orçamento (Estático)
+                            Gerar Orçamento (Simulado)
                         </button>
                     </div>
                 </div>
@@ -169,7 +186,7 @@
         <div class="card shadow-sm border-0">
             <div class="card-header bg-dark text-white fw-semibold py-3">
                 <i class="fas fa-list me-1"></i>
-                Frota
+                Catálogo de Veículos Cadastrados
             </div>
 
             <div class="card-body p-0">
@@ -180,7 +197,7 @@
                                 <th class="ps-3">Foto</th>
                                 <th>Tipo</th>
                                 <th>Modelo</th>
-                                <th>Placa</th>
+                                <th>Incluso</th>
                                 <th>Status</th>
                                 <th class="text-end pe-4">Ações</th>
                             </tr>
@@ -190,14 +207,312 @@
                             <tr>
                                 <td class="ps-3">
                                     <img
-                                        src="../../imagens/Sandero.png"
+                                        src="../../imagens/Jet4.png"
                                         class="admin-mini-img"
                                         alt="Sandero"
                                     >
                                 </td>
-                                <td>Carro</td>
-                                <td>Sandero</td>
-                                <td>FMA-6680</td>
+                                <td>Jet Ski</td>
+                                <td>HydraJet X</td>
+                                <td>Limpeza</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/IATE2.png"
+                                        class="admin-mini-img"
+                                        alt="Azimut 27 Metri"
+                                    >
+                                </td>
+                                <td>Iate</td>
+                                <td>Azimut 27 Metri</td>
+                                <td>Suítes + jacuzzi</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Lancha4.png"
+                                        class="admin-mini-img"
+                                        alt="Lancha Proa Aberta"
+                                    >
+                                </td>
+                                <td>Lancha</td>
+                                <td>Proa Aberta </td>
+                                <td>Marinheiro</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/IATE3.png"
+                                        class="admin-mini-img"
+                                        alt="Superyacht"
+                                    >
+                                </td>
+                                <td>Iate</td>
+                                <td>Superyacht</td>
+                                <td>Jacuzzi, Área gourmet, Sistema 
+                                de som premium e Kit de Segurança</td>
+
+                                <td>
+                                    <span class="badge bg-danger">
+                                        Alugado
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Jet1.png"
+                                        class="admin-mini-img"
+                                        alt="Kawasaki Ultra 310LX"
+                                    >
+                                </td>
+                                <td>Jet Ski</td>
+                                <td>Kawasaki Ultra 310LX</td>
+                                <td>Limpeza e manutenção</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Jet2.png"
+                                        class="admin-mini-img"
+                                        alt="Sea-Doo RXP-X 325"
+                                    >
+                                </td>
+                                <td>Jet Ski</td>
+                                <td>Sea-Doo RXP-X 325</td>
+                                <td>Seguranças e Manutenção</td>
+
+                                <td>
+                                    <span class="badge bg-danger">
+                                        Alugado
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Jet3.png"
+                                        class="admin-mini-img"
+                                        alt="Jet Ski Kawasaki Ultra 310R"
+                                    >
+                                </td>
+                                <td>Jet Ski</td>
+                                <td>Kawasaki Ultra 310R</td>
+                                <td>Limpeza e manutenção</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Lancha1.png"
+                                        class="admin-mini-img"
+                                        alt="Lancha Real 280 Malou Blue"
+                                    >
+                                </td>
+                                <td>Lancha</td>
+                                <td>Real 280 Malou Blue</td>
+                                <td>Marinheiro, Kit de Segurança e Manutenção</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        Disponível
+                                    </span>
+                                </td>
+
+                                <td class="text-end pe-3">
+                                    <button
+                                        class="btn btn-outline-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarVeiculo"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-lock"></i> Alugar
+                                    </button>
+
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="tabelaVeiculos">
+                            <tr>
+                                <td class="ps-3">
+                                    <img
+                                        src="../../imagens/Lancha2.png"
+                                        class="admin-mini-img"
+                                        alt="Lancha Yacxo 357"
+                                    >
+                                </td>
+                                <td>Lancha</td>
+                                <td>Yacxo 357</td>
+                                <td>Ar-condicionado, cabines para 6 pessoas e
+                                cozinha completa.</td>
 
                                 <td>
                                     <span class="badge bg-success">
