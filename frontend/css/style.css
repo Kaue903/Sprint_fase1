@@ -3,6 +3,15 @@
      Configurações base que afetam toda a aplicação.
      O Bootstrap já cuida da maioria — aqui ficam os ajustes finos.
      ============================================================ */
+
+/* Importação de fontes profissionais */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+/* ROLAGEM SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+
 /* ============================================================
    SISTEMA DE TEMAS (PALETAS FORNECIDAS)
    ============================================================= */
@@ -44,7 +53,7 @@
 body {
     background-color: var(--bg-body);
     color: var(--text-main);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Fonte Profissional */
     transition: background-color 0.3s ease, color 0.3s ease;
     
     /* Flexbox no body garante que o footer fique sempre no fundo */
@@ -52,6 +61,41 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link, .btn, .fw-bold, .display-2, .display-4 {
+    font-family: 'Montserrat', sans-serif; /* Fonte Profissional para Títulos */
+}
+
+/* --- EFEITOS DE ANIMAÇÃO E REVELAÇÃO --- */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Animação inicial do título */
+.hero-main h1 {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Efeito de revelação ao descer a tela (Scroll Reveal) */
+/* Nota: Para um efeito automático via CSS puro, usamos a técnica de animação com scroll-timeline 
+   ou classes que podem ser aplicadas via JS. Como o foco é CSS, apliquei uma transição suave
+   nas seções principais para que a descida não seja "seca". */
+
+section {
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+
+/* ---------------------------------------------- */
 
 /* ============================================================
    TELA DE LOGIN (REFERÊNCIA MANTIDA)
@@ -101,7 +145,7 @@ body {
 }
 
 .header-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-main);
@@ -498,7 +542,6 @@ body {
     color: #555;
     font-style: italic;
     line-height: 1.6;
-    margin-bottom: 0;
 }
 
 /* Customização dos controles do carrossel */
@@ -539,7 +582,7 @@ body {
 }
 
 .footer-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 25px;
@@ -716,4 +759,58 @@ body {
 .aluguel-section .container {
     position: relative;
     z-index: 2;
+}
+
+/* ============================================================
+   RESPONSIVIDADE MOBILE (AJUSTES FINAIS)
+   ============================================================= */
+
+@media (max-width: 991.98px) {
+    /* Navbar Mobile */
+    .navbar-collapse {
+        background-color: var(--bg-card);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-top: 10px;
+    }
+    .nav-links-container {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        text-align: center;
+    }
+    .restricted-area-btn {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* QUEM SOMOS MOBILE */
+    .container-quem-somos {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
+        gap: 30px !important;
+    }
+    .texto-quem-somos h2 {
+        font-size: 32px;
+    }
+    .texto-quem-somos h2::after {
+        margin: 10px auto;
+    }
+    .imagem-quem-somos img {
+        max-width: 100%;
+    }
+
+    /* HERO MOBILE */
+    .hero-main {
+        text-align: center;
+        padding-top: 80px;
+    }
+    .hero-main h1 {
+        font-size: 2.5rem;
+    }
+    .hero-main p {
+        margin: 0 auto 20px;
+    }
 }
