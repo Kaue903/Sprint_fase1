@@ -22,7 +22,7 @@
 <body>
 
 <!-- Navbar (menu superior) -->
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm py-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-0 fixed-top">
     <div class="container d-flex align-items-center">
 
         <!-- Logo (sem alteração) -->
@@ -32,12 +32,16 @@
 
         <!-- Menu central -->
         <div class="d-flex justify-content-center align-items-center gap-5">
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="index.html">Início</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="fleet.html">Quem Somos</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="services.html">Aluguel</a>
-        <a class="nav-link text-dark py-1 fs-5 nav-underline" href="contact.html">Avaliações</a>
-    <a class="nav-link text-dark py-1 fs-5 nav-underline" href="contact.html">Contato</a>
-    </div>
+      <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#inicio">Início</a>
+
+      <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#quem-somos">Quem Somos</a>
+
+     <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#aluguel">Aluguel</a>
+
+      <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#avaliacoes">Avaliações</a>
+
+      <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#contato">Contato</a>
+      </div>
 
         <!-- Botão direita -->
         <div>
@@ -51,22 +55,28 @@
     </div>
 </nav>
 
-<!-- HERO PRINCIPAL -->
-<div class="hero hero-main d-flex align-items-center text-white text-center">
+<!-- HERO -->
+<section id="inicio" class="hero hero-main d-flex align-items-center text-white">
     <div class="container">
-        <h1 class="display-4 fw-bold mb-3">Bem-vindo ao Wave Club</h1>
-        <p class="lead mb-4">
-            Sua melhor escolha para aluguel de barcos, lanchas e jet skis.
-            Explore a liberdade do mar com segurança e conforto.
-        </p>
-        <a href="#aluguel" class="btn btn-primary btn-lg fw-bold py-2 px-4">
-        <i class="fas fa-anchor me-2"></i>Explore Nosso Catálogo
-        </a>
-    </div>
-</div>
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-2 fw-bold mb-6">Bem-vindo ao Wave Club</h1>
 
-<!-- SEÇÃO QUEM SOMOS -->
-<section class="quem-somos">
+                <p class="lead fs-4 mb-4">
+                    Sua melhor escolha para aluguel de barcos, lanchas e jet skis.
+                    Explore a liberdade do mar com segurança e conforto.
+                </p>
+
+                <a href="#aluguel" class="btn btn-primary btn-lg fw-bold px-4 py-3">
+                    <i class="fas fa-anchor me-2"></i> Explore Nosso Catálogo
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos" class="quem-somos">
   <div class="container-quem-somos">
     
     <div class="texto-quem-somos">
@@ -87,7 +97,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO DE ALUGUEL-->
+<!-- ALUGUEL -->
 <section id="aluguel" class="aluguel-section text-white text-center d-flex align-items-center">
     <div class="container py-5">
         <h1 class="display-4 fw-bold mb-3">Alugue e Aproveite o Barco Ideal Para Você</h1>
@@ -561,59 +571,7 @@
     </div>
 </div>
 
-
-    </div>
-</div>
-
-<!-- Modal de interesse -->
-<div class="modal fade" id="modalInteresse" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg">
-
-            <!-- Cabeçalho do modal -->
-            <div class="modal-header bg-primary text-white">
-                <div>
-                    <h5 class="modal-title fw-bold mb-0">
-                        <i class="fas fa-handshake me-2"></i>Tenho Interesse
-                    </h5>
-                    <small class="opacity-75" id="interesseVeiculoNome">Veículo Exemplo</small>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-
-            <!-- Corpo do modal -->
-            <div class="modal-body p-4">
-                <input type="hidden" id="interesseVeiculoId">
-                <p class="text-muted mb-4">Preencha seus dados e entraremos em contato.</p>
-
-                <!-- Campo nome -->
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">
-                        <i class="fas fa-user text-primary me-1"></i>Seu nome
-                    </label>
-                    <input type="text" class="form-control form-control-lg" id="interesseNome" placeholder="Ex: João da Silva">
-                </div>
-
-                <!-- Campo telefone -->
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">
-                        <i class="fas fa-phone text-primary me-1"></i>Seu telefone
-                    </label>
-                    <input type="text" class="form-control form-control-lg" id="interesseTelefone" placeholder="Ex: (11) 91234-5678">
-                </div>
-            </div>
-
-            <!-- Rodapé do modal -->
-            <div class="modal-footer bg-light">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary fw-bold px-4">Enviar</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- AVALIAÇÕES CARROSSEL -->
+<!-- AVALIAÇÕES -->
 <section id="avaliacoes" class="avaliacoes-section">
     <div class="container position-relative">
         <div class="text-center mb-5">
@@ -697,8 +655,8 @@
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer-main">
+<!-- FOOTER / CONTATO -->
+<footer id="contato" class="footer-main">
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-4 col-md-6 footer-about">
@@ -713,11 +671,11 @@
             <div class="col-lg-2 col-md-6">
                 <h5 class="footer-title">Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-decoration-none text-white-50">Início</a></li>
-                    <li><a href="#" class="text-decoration-none text-white-50">Sobre nós</a></li>
-                    <li><a href="#" class="text-decoration-none text-white-50">Aluguel</a></li>
-                    <li><a href="#" class="text-decoration-none text-white-50">Avaliações</a></li>
-                    <li><a href="#" class="text-decoration-none text-white-50">Contato</a></li>
+                <li><a href="#inicio" class="text-decoration-none text-white-50">Início</a></li>
+                <li><a href="#quem-somos" class="text-decoration-none text-white-50">Sobre nós</a></li>
+                <li><a href="#aluguel" class="text-decoration-none text-white-50">Aluguel</a></li>
+                <li><a href="#avaliacoes" class="text-decoration-none text-white-50">Avaliações</a></li>
+                <li><a href="#contato" class="text-decoration-none text-white-50">Contato</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6">

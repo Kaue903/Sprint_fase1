@@ -658,3 +658,62 @@ body {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
 }
+
+/* Hero Main */
+.hero-main {
+    height: 100vh; /* ocupa tela inteira */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('/Imagens/MainIate.jpg') center/cover no-repeat;
+}
+
+/* Ajuste fino do texto */
+.hero-main h1 {
+    font-size: 3.5rem;
+}
+
+.hero-main p {
+    max-width: 500px;
+}
+
+/* SEÇÕES PARA SCROLL SUAVE */
+
+#aluguel {
+    scroll-margin-top: 100px;
+}
+
+#quem-somos {
+    scroll-margin-top: 100px;
+}
+
+#inicio {
+    scroll-margin-top: 100px;
+}
+
+#avaliacoes {
+    scroll-margin-top: 100px;
+}
+
+#contato {
+    scroll-margin-top: 100px;
+}
+
+/* Imagem Aluguel */
+.aluguel-section {
+    background: url('/Imagens/IMGaluguel.jpg') center/cover no-repeat;
+    position: relative;
+    min-height: 400px;
+}
+
+/* Camada escura por cima da imagem (para melhorar leitura do texto) */
+.aluguel-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Garante que o conteúdo fique acima da imagem */
+.aluguel-section .container {
+    position: relative;
+    z-index: 2;
+}
