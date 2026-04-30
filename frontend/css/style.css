@@ -333,6 +333,27 @@ section {
     transform: scale(1.05);
 }
 
+/* NAVBAR */
+.nav-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* distância da linha */
+    width: 0%;
+    height: 2px;
+    background-color: #000; /* cor da linha */
+    transition: width 0.3s ease;
+}
+
+.nav-underline:hover::after {
+    width: 100%;
+}
+
 /* HERO PRINCIPAL */
 .hero-main {
     min-height: 90vh;
@@ -372,12 +393,13 @@ section {
   justify-content: space-between;
   gap: 60px;
 
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 
   background: var(--bg-card);
   border-radius: 20px;
-  padding: 50px;
+  padding: 70px;
+  gap: 80px;
 
   box-shadow: var(--card-shadow);
 }
@@ -603,7 +625,7 @@ section {
 }
 
 .footer-about p {
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     line-height: 1.7;
     font-size: 0.95rem;
 }
@@ -619,7 +641,7 @@ section {
 }
 
 .footer-links ul li a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 0.95rem;
@@ -632,7 +654,7 @@ section {
 
 /* FORMULÁRIO NO FOOTER */
 .footer-contact-form .form-control {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.15); /* antes era 0.05 */
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
     border-radius: 8px;
@@ -641,14 +663,16 @@ section {
 }
 
 .footer-contact-form .form-control:focus {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
     border-color: #3ABEF9;
     box-shadow: none;
 }
 
 .footer-contact-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    opacity: 1; /* garante que não fique transparente */
 }
+
 
 .btn-footer-send {
     background-color: #3ABEF9;
@@ -662,7 +686,7 @@ section {
 }
 
 .btn-footer-send:hover {
-    background-color: #ffffff;
+    background-color: #A7E6FF;
     color: #050C9C;
     transform: translateY(-2px);
 }
@@ -699,7 +723,7 @@ section {
     margin-top: 50px;
     text-align: center;
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Hero Main */
