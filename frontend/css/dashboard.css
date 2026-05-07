@@ -1,0 +1,74 @@
+/* ============================================================
+   DASHBOARD ADMIN
+============================================================ */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   TABELAS
+============================================================ */
+.table-actions {
+    white-space: nowrap;
+}
+
+.table-actions input[type="number"] {
+    width: 70px;
+    text-align: center;
+}
+
+/* ============================================================
+   IMAGENS DOS VEÍCULOS
+============================================================ */
+.admin-mini-img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    background-color: #fff;
+    padding: 2px;
+}
+
+/* ============================================================
+   CARDS ADMIN
+============================================================ */
+.card-header-blue {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
+
+/* ============================================================
+   BOTÕES
+============================================================ */
+.btn-dashboard {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-dashboard:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+============================================================ */
+@media (max-width: 768px) {
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .admin-mini-img {
+        width: 50px;
+        height: 50px;
+    }
+}
