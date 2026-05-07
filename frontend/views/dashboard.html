@@ -26,35 +26,34 @@
     <link
         rel="icon"
         href="/Imagens/logofavicon.png">
-    
 </head>
 <body>
     <!-- CONTAINER PRINCIPAL -->
     <div class="container mt-4 pb-4">
         <!-- HEADER -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">
-                <!-- Logo (sem alteração) -->
-            <a class="navbar-brand fw-bold" href="index.html">
-            <img src="/Imagens/logo.png" width="125px">
-                Painel de Controle - Wave Club
-            </h2>
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <h2 class="mb-0 d-flex align-items-center gap-2">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2 text-decoration-none text-dark" href="index.html">
+            <img src="/Imagens/logo.png" width="80px">
+            Painel de Controle - Wave Club
+        </a>
+    </h2>
 
-            <div>
-                <span class="badge bg-dark fs-6 p-2 shadow-sm">
-                    <i class="fas fa-user-circle me-1"></i>
-                    <span id="userNameDisplay">Administrador </span>
-                </span>
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span class="badge bg-dark fs-6 p-2 shadow-sm">
+            <i class="fas fa-user-circle me-1"></i>
+            <span id="userNameDisplay">Administrador</span>
+        </span>
 
-                <button class="btn btn-outline-danger btn-sm ms-2">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </button>
+        <button class="btn btn-outline-danger btn-sm">
+            <i class="fas fa-sign-out-alt"></i> Sair
+        </button>
 
-                <a href="index.html" class="btn btn-outline-secondary btn-sm ms-1">
-                    <i class="fas fa-external-link-alt"></i> Ver Site
-                </a>
-            </div>
-        </div>
+        <a href="index.html" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-external-link-alt"></i> Ver Site
+        </a>
+    </div>
+</div>
 
         <!-- LINHA DOS CARDS -->
         <div class="row g-4 mb-4">
@@ -584,4 +583,104 @@
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<style>
+@media (max-width: 768px) {
+
+    /* HEADER */
+    .container > .d-flex.justify-content-between {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .container > .d-flex.justify-content-between h2 {
+        font-size: 0.95rem;
+    }
+
+    .container > .d-flex.justify-content-between h2 img {
+        width: 55px !important;
+    }
+
+    .container > .d-flex.justify-content-between > div {
+        flex-wrap: nowrap !important;
+        width: 100%;
+    }
+
+    .container > .d-flex.justify-content-between > div .badge {
+        flex: 1;
+        font-size: 0.72rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .container > .d-flex.justify-content-between > div .btn {
+        flex-shrink: 0;
+        font-size: 0.72rem;
+        padding: 0.35rem 0.6rem;
+        white-space: nowrap;
+    }
+
+    /* CARDS FORMULÁRIO */
+    .row.g-4.mb-4 > .col-md-6,
+    .card-body .row > .col-md-6 {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* TABELA */
+    .table-responsive { overflow: visible !important; }
+    .table thead { display: none !important; }
+    .table, .table tbody, .table tr, .table td {
+        display: block !important;
+        width: 100% !important;
+    }
+    .table tr {
+        background: #fff;
+        border: 1px solid #dee2e6 !important;
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
+        padding: 0.6rem 0.75rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .table td {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.28rem 0 !important;
+        border: none !important;
+        font-size: 0.83rem;
+        text-align: left !important;
+    }
+    .table td[data-label]::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #6c757d;
+        min-width: 75px;
+        flex-shrink: 0;
+        margin-right: 0.5rem;
+    }
+    .table td[data-label="Foto"] { justify-content: flex-start; gap: 0.5rem; }
+    .table td img.admin-mini-img {
+        width: 52px !important;
+        height: 52px !important;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .table td.text-end {
+        justify-content: flex-end !important;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        padding-top: 0.5rem !important;
+        border-top: 1px solid #f0f0f0 !important;
+    }
+    .table td.text-end::before { display: none !important; }
+    .table td .btn-sm { font-size: 0.73rem; padding: 0.25rem 0.55rem; }
+}
+
+@media (max-width: 480px) {
+    .container { padding-left: 0.65rem !important; padding-right: 0.65rem !important; }
+}
+</style>
 </html>
