@@ -26,143 +26,323 @@
 </head>
 <body>
 
-<!-- Navbar (menu superior) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wave Club — Locadora de Barcos e Navegação</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/Imagens/logofavicon.png">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR PREMIUM
+========================================================= -->
+<nav class="navbar navbar-expand-lg navbar-wave fixed-top">
+
     <div class="container">
 
-        <!-- Logo (sem alteração) -->
-        <a class="navbar-brand fw-bold" href="index.html">
-            <img src="/Imagens/logo.png" width="125px">
+        <!-- LOGO -->
+        <a class="navbar-brand" href="index.html">
+            <img src="/Imagens/logo2.png" alt="Wave Club">
         </a>
 
-        <!-- Botão Hamburguer para Mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarWaveClub" 
-        aria-controls="navbarWaveClub" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- BOTÃO MOBILE -->
+        <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarWaveClub"
+            aria-controls="navbarWaveClub"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Conteúdo do Menu -->
+        <!-- MENU -->
         <div class="collapse navbar-collapse" id="navbarWaveClub">
-            <!-- Menu central -->
-            <div class="d-flex justify-content-center align-items-center gap-5 mx-auto nav-links-container">
-                <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#inicio">Início</a>
-                <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#quem-somos">Quem Somos</a>
-                <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#aluguel">Aluguel</a>
-                <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#avaliacoes">Avaliações</a>
-                <a class="nav-link text-dark py-1 fs-5 nav-underline" href="#contato">Contato</a>
-            </div>
 
-            <!-- Botão direita -->
-            <div class="restricted-area-btn">
-                <a href="login.html" class="btn btn-outline-dark btn-sm fw-bold py-1 px-2">
-                    <i class="fas fa-user-lock"></i> Área Restrita
+            <!-- LINKS -->
+            <ul class="navbar-nav mx-auto gap-lg-5 text-center">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#inicio">
+                        Início
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#quem-somos">
+                        Quem Somos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#aluguel">
+                        Aluguel
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#avaliacoes">
+                        Avaliações
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato">
+                        Contato
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- BOTÃO -->
+            <div class="navbar-btn-wrapper text-center">
+                <a href="login.html" class="btn-area-restrita">
+
+                    <i class="fas fa-user-lock"></i>
+
+                    Área Restrita
+
                 </a>
             </div>
-        </div>
 
+        </div>
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 <section id="inicio" class="hero hero-main d-flex align-items-center text-white">
+
     <div class="container">
+
         <div class="row">
+
             <div class="col-lg-8">
-                <h1 class="display-2 fw-bold mb-6">Bem-vindo ao Wave Club</h1>
+
+                 <h1 class="display-2 fw-bold mb-4">
+                 Bem-vindo ao Wave Club
+                </h1>
 
                 <p class="lead fs-4 mb-4">
-                    Sua melhor escolha para aluguel de barcos, lanchas e jet skis.
-                    Explore a liberdade do mar com segurança e conforto.
+                    Experiências náuticas exclusivas com iates,
+                    lanchas e jet skis de alto padrão.
+                    Navegue com conforto, sofisticação e liberdade.
                 </p>
 
-                <a href="#aluguel" class="btn btn-primary btn-lg fw-bold px-4 py-3">
-                    <i class="fas fa-anchor me-2"></i> Explore Nosso Catálogo
+                <a href="#aluguel"
+                class="btn btn-primary btn-lg fw-bold px-4 py-3">
+
+                    <i class="fas fa-anchor me-2"></i>
+
+                    Explore Nosso Catálogo
+
                 </a>
+
             </div>
         </div>
     </div>
 </section>
 
-<!-- QUEM SOMOS -->
-<section id="quem-somos" class="quem-somos">
-  <div class="container-quem-somos">
-    
-    <div class="texto-quem-somos">
-      <h2>Quem Somos?</h2>
-      <p>
-        A Wave Club é uma empresa especializada em experiências náuticas, oferecendo aluguel de barcos, iates e jet skis para momentos de lazer e aventura.
-      </p>
-      <p>
-        Com um catálogo moderno e atendimento personalizado, garantimos conforto, segurança e praticidade em cada passeio. Na Wave Club, nosso objetivo é 
-        transformar cada saída para o mar em uma experiência única e inesquecível.
-      </p>
+<!-- =========================================================
+     QUEM SOMOS PREMIUM
+========================================================= -->
+<section id="quem-somos" class="quem-somos-premium">
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-9">
+
+                <!-- TAG -->
+                <div class="section-tag justify-content-center mb-4">
+                    <span></span>
+                    WAVE CLUB
+                    <span></span>
+                </div>
+
+                <!-- TÍTULO -->
+                <h2 class="quem-title">
+                    Quem Somos ?
+                </h2>
+
+                <!-- LINHA -->
+                <div class="title-line mx-auto mb-5"></div>
+
+                <!-- TEXTO SECUNDÁRIO -->
+                <p class="quem-text mx-auto">
+                    A Wave Club nasceu para oferecer experiências náuticas
+                    premium com sofisticação, segurança e exclusividade.
+                    Trabalhamos com iates, lanchas e jet skis de alto padrão,
+                    proporcionando conforto absoluto em cada passeio.
+                </p>
+
+                <p class="quem-text mx-auto">
+                    Nosso compromisso é entregar excelência em cada detalhe,
+                    desde o atendimento personalizado até a qualidade
+                    impecável das embarcações.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="imagem-quem-somos">
-      <img src="/Imagens/logo.png" alt="Wave Club">
-    </div>
-
-  </div>
 </section>
 
-<!-- ALUGUEL -->
-<section id="aluguel" class="aluguel-section text-white text-center d-flex align-items-center">
-    <div class="container py-5">
-        <h1 class="display-4 fw-bold mb-3">Alugue e Aproveite o Barco Ideal Para Você</h1>
-        <p class="lead mb-4">
-            Barcos e embarcações revisadas, com os melhores preços do mercado.
-        </p>
+<!-- =========================================================
+     ALUGUEL PREMIUM
+========================================================= -->
+<section id="aluguel" class="aluguel-section text-white position-relative overflow-hidden">
+
+    <!-- EFEITOS -->
+    <div class="aluguel-glow glow-1"></div>
+    <div class="aluguel-glow glow-2"></div>
+
+    <div class="container position-relative z-2">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-9">
+
+                <span class="aluguel-badge mb-4 d-inline-flex align-items-center">
+                    EXPERIÊNCIA PREMIUM
+                </span>
+
+                <h1 class="display-3 fw-bold mb-4 aluguel-title">
+                    Alugue e Aproveite o
+                    <span>Barco Ideal</span>
+                    Para Você
+                </h1>
+
+                <p class="lead aluguel-text mb-0">
+                    Embarcações revisadas, luxo absoluto e experiências
+                    exclusivas para transformar seus momentos no mar.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
-<!-- Card de preços destacado -->
-<div class="container position-relative" style="margin-top: -40px; z-index: 10;">
+
+<!-- =========================================================
+     CARD DE PREÇOS
+========================================================= -->
+<div class="container position-relative aluguel-prices-wrapper">
+
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-8">
-            <div class="card shadow-lg border-0" style="border-radius: 12px;">
-                <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-around align-items-center text-center gap-3 card-body-prices">
 
-                    
-                  <!-- Preço dos Iates -->
+        <div class="col-lg-10">
 
-                  <div>
-                      <h6 class="text-muted text-uppercase fw-bold mb-1">
-                          <img src="/Imagens/iconIate.png" width="32"> Iates
-                      </h6>
-                      <h2 class="fw-bold text-dark mb-0 ">
-                          A partir de R$10.000/dia
-                      </h2>
-                  </div>
+            <div class="card aluguel-prices-card border-0">
 
-                  <!-- Linha divisória -->
-                  <div class="border-start border-2 d-none d-md-block" style="height: 50px;"></div>
+                <div class="card-body p-4 p-lg-5">
 
-                  <!-- Preço de Jet Skis -->
-                  <div>
-                      <h6 class="text-muted text-uppercase fw-bold mb-1">
-                          <img src="/Imagens/IconJet.png" width="32"> Jet Skis
-                      </h6>
-                      <h2 class="fw-bold text-dark mb-0">
-                          A partir de R$800/dia
-                      </h2>
-                  </div>
+                    <div class="row text-center gy-4">
 
-                  <!-- Linha divisória -->
-                  <div class="border-start border-2 d-none d-md-block" style="height: 50px;"></div>
+                        <!-- IATES -->
+                        <div class="col-md-4">
 
-                  <!-- Preço das Lanchas -->
-                  <div>
-                      <h6 class="text-muted text-uppercase fw-bold mb-1">
-                          <img src="/Imagens/IconLancha.png" width="32"> Lanchas
-                      </h6>
-                      <h2 class="fw-bold text-dark mb-0">
-                          A partir de R$2.500/dia
-                      </h2>
-                  </div>
+                            <div class="price-item">
+
+                                <div class="price-icon mb-3">
+                                    <img src="/Imagens/iconIate.png" class="rounded-circle "
+                                  width="100">
+                                </div>
+
+                                <h6 class="price-label">
+                                    IATES
+                                </h6>
+
+                                <h2 class="price-value">
+                                    R$10.000<span>/dia</span>
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <!-- JET -->
+                        <div class="col-md-4">
+
+                            <div class="price-item price-middle">
+
+                                <div class="price-icon mb-3">
+                                    <img src="/Imagens/IconJet.png" class="rounded-circle "
+                                  width="100">>
+                                </div>
+
+                                <h6 class="price-label">
+                                    JET SKIS
+                                </h6>
+
+                                <h2 class="price-value">
+                                    R$800<span>/dia</span>
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <!-- LANCHA -->
+                        <div class="col-md-4">
+
+                            <div class="price-item">
+
+                                <div class="price-icon mb-3">
+                                    <img src="/Imagens/IconLancha.png" class="rounded-circle "
+                                  width="100">
+                                </div>
+
+                                <h6 class="price-label">
+                                    LANCHAS
+                                </h6>
+
+                                <h2 class="price-value">
+                                    R$2.500<span>/dia</span>
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </div>
 
 <!-- Seção principal da vitrine -->
