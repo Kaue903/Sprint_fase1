@@ -36,7 +36,8 @@
     <title>Wave Club — Locadora de Barcos e Navegação</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,7 +121,14 @@
             </ul>
 
             <!-- BOTÃO -->
-            <div class="navbar-btn-wrapper text-center">
+            <div class="d-flex align-items-center gap-3 navbar-btn-wrapper text-center">
+
+                <!-- BOTÃO DARK/LIGHT -->
+                <button id="theme-toggle" class="theme-toggle-btn">
+                <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+
+                <!-- BOTÃO ÁREA RESTRITA -->
                 <a href="login.html" class="btn-area-restrita">
 
                     <i class="fas fa-user-lock"></i>
@@ -128,6 +136,7 @@
                     Área Restrita
 
                 </a>
+
             </div>
 
         </div>
@@ -143,7 +152,7 @@
 
         <div class="row">
 
-            <div class="col-lg-8">
+            <div class="col-lg-10">
 
                  <h1 class="display-2 fw-bold mb-4">
                  Bem-vindo ao Wave Club
@@ -186,7 +195,7 @@
 
                 <!-- TÍTULO -->
                 <h2 class="quem-title">
-                    Quem Somos ?
+                    Quem Somos?
                 </h2>
 
                 <!-- LINHA -->
@@ -229,9 +238,6 @@
 
             <div class="col-lg-9">
 
-                <span class="aluguel-badge mb-4 d-inline-flex align-items-center">
-                    EXPERIÊNCIA PREMIUM
-                </span>
 
                 <h1 class="display-3 fw-bold mb-4 aluguel-title">
                     Alugue e Aproveite o
@@ -390,7 +396,7 @@
     <div class="card-body d-flex flex-column">
 
       <h5 class="fw-bold">
-        <img src="/Imagens/IconJet.png" width="28"> HydraJet X
+    HydraJet X
       </h5>
 
       <!-- PREÇO DESTAQUE -->
@@ -399,7 +405,7 @@
           R$ 2.500
         </span>
         <span class="fw-bold text-success fs-5">
-          R$ 2.000/diária
+        R$ 2.000/diária
         </span>
       </div>
 
@@ -431,7 +437,7 @@
 
         <div class="card-body d-flex flex-column">
           <h5 class="fw-bold">
-            <img src="/Imagens/iconIate.png" width="28"> Azimut 27 Metri
+        Azimut 27 Metri
           </h5>
 
           <!-- PREÇO DESTAQUE -->
@@ -469,7 +475,7 @@
 
         <div class="card-body d-flex flex-column">
           <h5 class="fw-bold">
-            <img src="/Imagens/iconLancha.png" width="28"> Proa Aberta
+        Proa Aberta
           </h5>
 
           <!-- PREÇO DESTAQUE -->
@@ -508,7 +514,7 @@
         <div class="card-body d-flex flex-column">
           <h5 class="fw-bold">Superyacht</h5>
 
-          <!-- 💰 PREÇO DESTACADO -->
+          <!-- PREÇO DESTACADO -->
             <div class="mb-2">
             <span class="fw-bold text-success fs-5">
             R$ 21.000/diária
@@ -767,8 +773,7 @@
 <section id="avaliacoes" class="avaliacoes-section">
     <div class="container position-relative">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">O que dizem nossos navegantes</h2>
-            <p class="text-muted">A satisfação dos nossos clientes é o que nos move.</p>
+            <h2 class="fw-bold">O que dizem nossos navegantes?</h2>
         </div>
         
         <div id="carouselAvaliacoes" class="carousel slide" data-bs-ride="carousel">
@@ -778,7 +783,7 @@
                     <div class="row g-4 justify-content-center">
                         <div class="col-12 col-md-4">
                             <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCZlbGXt5IXQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707440624894?e=1779926400&v=beta&t=yKIGGqOSSuBvjCpek0RBAKxhKuHkxfiy1GY25tOxs5I" 
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCZlbGXt5IXQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707440624894?e=1781740800&v=beta&t=JjisW06GHbpd2kVIBgm4_xFSiZqI3vxZaPlwyQtGmUE" 
                                 class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Denis">
                                 <h5 class="fw-bold">Dênis dos Anjos</h5>
                                 <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -787,7 +792,7 @@
                         </div>
                         <div class="col-md-4 d-none d-md-block">
                             <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/C4D03AQGSjwlVzBOKZQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1657554131696?e=1779926400&v=beta&t=cLuGZ5WAc5MuHDyuJ-F3k_CwbAMvh87IMxYsTOfI0ws" 
+                                <img src="https://media.licdn.com/dms/image/v2/C4D03AQGSjwlVzBOKZQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1657554131696?e=1781740800&v=beta&t=sTJ7Zpbo0hx87trlQS5I0fc4L6DKaWRaE5CM6k51ofg" 
                                 class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Ignacio">
                                 <h5 class="fw-bold">Ignacio Neto</h5>
                                 <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -796,7 +801,7 @@
                         </div>
                         <div class="col-md-4 d-none d-md-block">
                             <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHAj4QwBEkmTA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1706192163923?e=1779926400&v=beta&t=CnR5Hdu8hO3NBF4xjRBTMkT6oVIEFPzJOYqj2g9V-rg" 
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHAj4QwBEkmTA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1706192163923?e=1781740800&v=beta&t=hMUcekXkXmZS3ODVOypFg-ZMJYBpDTmyNff78j5BF9Y" 
                                 class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="André">
                                 <h5 class="fw-bold">André Luis</h5>
                                 <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -811,7 +816,7 @@
                     <div class="row g-4 justify-content-center">
                         <div class="col-12 col-md-4">
                             <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGkuouY5TWRTg/profile-displayphoto-crop_800_800/B4EZsy1fsCKMAI-/0/1766084444953?e=1779926400&v=beta&t=OHCmOdU78EWprQDvYTvq4p5rQ9TAbJv2nrbduTp0bTY"
+                                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGkuouY5TWRTg/profile-displayphoto-crop_800_800/B4EZsy1fsCKMAI-/0/1766084444953?e=1781740800&v=beta&t=rRbtBAptEgkEjPeXEtVSSN1-iCLhLyPcBFIxGp-ek6Y"
                                  class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Paulo">
                                 <h5 class="fw-bold">Paulo Camargo</h5>
                                 <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -820,7 +825,7 @@
                         </div>
                         <div class="col-md-4 d-none d-md-block">
                             <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/C5603AQHl6N1PrtW1LA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517443229114?e=1779926400&v=beta&t=feYdB7jgUZnT-AAQYFMBX3jPz2xqTSp4fW-9ivB8QO4" 
+                                <img src="https://media.licdn.com/dms/image/v2/C5603AQHl6N1PrtW1LA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517443229114?e=1781740800&v=beta&t=Un3AR3fOrFPf5keYJ53MxKup3dTuRMUCkO-4Y2siQiU" 
                                 class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Valmir Jesus">
                                 <h5 class="fw-bold">Valmir Jesus</h5>
                                 <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -854,6 +859,9 @@
 </section>
 
 <!-- FOOTER / CONTATO -->
+<div class="footer-divider"></div>
+
+<footer class="footer-main">
 <footer id="contato" class="footer-main">
     <div class="container">
         <div class="row g-5">
@@ -909,6 +917,49 @@
 
 <!-- Script -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+/* ALTERAR TEMA */
+themeToggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('light-mode');
+
+    if(document.body.classList.contains('light-mode')){
+
+        localStorage.setItem('theme','light');
+
+        /* Lua */
+        themeIcon.className = 'fas fa-moon';
+
+    }else{
+
+        localStorage.setItem('theme','dark');
+
+        /* Sol*/
+        themeIcon.className = 'fas fa-sun';
+    }
+});
+
+/* CARREGAR TEMA */
+window.addEventListener('load', () => {
+
+    const savedTheme = localStorage.getItem('theme');
+
+    if(savedTheme === 'light'){
+
+        document.body.classList.add('light-mode');
+
+        themeIcon.className = 'fas fa-moon';
+
+    }else{
+
+        themeIcon.className = 'fas fa-sun';
+    }
+});
+</script>
 
 </body>
 </html>

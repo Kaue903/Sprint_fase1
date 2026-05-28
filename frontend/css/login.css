@@ -1,212 +1,502 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =========================================================
+   GOOGLE FONT
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   RESET
+========================================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  background: #05060a;
-  color: white;
-  overflow-x: hidden;
+/* =========================================================
+   ROOT
+========================================================= */
+:root{
+
+    --bg-dark:#021526;
+    --bg-dark-2:#031b34;
+
+    --primary:#03346E;
+    --secondary:#6EACDA;
+    --blue-light:#9fd0f5;
+
+    --text:#eef5ff;
+    --text-soft:#b9c8d9;
+
+    --shadow:
+    0 20px 40px rgba(0,0,0,0.25);
 }
 
-/* BACKGROUND ANIMADO */
-.bg-animation {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #00d4ff33, transparent 40%),
-              radial-gradient(circle at 80% 80%, #7a00ff33, transparent 40%);
-  animation: moveBg 10s infinite alternate;
-  z-index: -1;
+/* =========================================================
+   BODY
+========================================================= */
+body{
+
+    min-height:100vh;
+
+    font-family:'Montserrat', sans-serif;
+
+    color:var(--text);
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        #021526 0%,
+        #031b34 50%,
+        #06254a 100%
+    );
+
+    position:relative;
 }
 
-@keyframes moveBg {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
+/* BACKGROUND */
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(110,172,218,0.18),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(3,52,110,0.20),
+        transparent 35%
+    );
+
+    z-index:-2;
 }
 
-/* NAVBAR GLASS */
-.navbar-glass {
-  backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(2,21,38,0.78),
+        rgba(2,21,38,0.88)
+    ),
+    url('/Imagens/MainIate.jpg')
+    center center/cover no-repeat;
+
+    opacity:.18;
+
+    z-index:-3;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  position: relative;
+/* =========================================================
+   WRAPPER
+========================================================= */
+.login-wrapper{
+    position:relative;
+    z-index:2;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: cyan;
-  bottom: -5px;
-  left: 0;
-  transition: 0.3s;
+/* =========================================================
+   LINK VOLTAR
+========================================================= */
+.back-link{
+
+    color:rgba(255,255,255,0.75);
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+    transition:.3s ease;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+.back-link:hover{
+    color:var(--secondary);
 }
 
-/* BOTÃO GLOW */
-.btn-glow {
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #00e5ff, #7a00ff);
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0 0 20px #00e5ff55;
-  transition: 0.3s;
+/* =========================================================
+   CARD LOGIN
+========================================================= */
+.login-card{
+
+    border:none !important;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(8,27,50,0.95),
+        rgba(13,39,72,0.92)
+    ) !important;
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.06) !important;
+
+    box-shadow:var(--shadow);
 }
 
-.btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px #00e5ff;
+/* HEADER */
+.card-header{
+
+    padding:22px 26px;
+
+    border:none !important;
+
+    background:
+    linear-gradient(
+        135deg,
+        #03346E,
+        #06254a
+    ) !important;
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: url('/Imagens/MainIate.jpg') center/cover;
+.header-title{
+
+    color:#fff;
+
+    font-size:1rem;
+
+    font-weight:700;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
+/* BODY */
+.card-body{
+    padding:30px 26px;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
+/* =========================================================
+   LABELS
+========================================================= */
+.form-label{
+
+    color:rgba(255,255,255,0.82);
+
+    font-size:.9rem;
+
+    margin-bottom:10px;
 }
 
-.hero h1 {
-  font-size: 4rem;
-  animation: float 4s infinite ease-in-out;
+/* =========================================================
+   INPUTS
+========================================================= */
+.form-control{
+
+    height:52px;
+
+    border:none !important;
+
+    border-radius:14px;
+
+    padding:0 16px;
+
+    color:#fff !important;
+
+    background:
+    rgba(255,255,255,0.06) !important;
+
+    box-shadow:none !important;
+
+    transition:.3s ease;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.form-control::placeholder{
+    color:rgba(255,255,255,0.45);
 }
 
-/* BOTÃO PRINCIPAL */
-.btn-main {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 30px;
-  background: cyan;
-  color: black;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: 0.3s;
+.form-control:focus{
+
+    background:
+    rgba(255,255,255,0.08) !important;
+
+    border:1px solid rgba(110,172,218,0.35) !important;
+
+    box-shadow:
+    0 0 0 4px rgba(110,172,218,0.10) !important;
 }
 
-.btn-main:hover {
-  transform: scale(1.1);
+/* =========================================================
+   BOTÃO LOGIN
+========================================================= */
+.btn-login{
+
+    height:54px;
+
+    border:none !important;
+
+    border-radius:14px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:#fff !important;
+
+    background:
+    linear-gradient(
+        135deg,
+        #03346E,
+        #6EACDA
+    ) !important;
+
+    box-shadow:
+    0 10px 24px rgba(3,52,110,0.28);
+
+    transition:.35s ease;
 }
 
-/* SEÇÕES */
-.section {
-  padding: 100px 20px;
+.btn-login:hover{
+
+    transform:
+    translateY(-2px)
+    scale(1.01);
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b4c9c,
+        #9fd0f5
+    ) !important;
 }
 
-.glass {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+/* =========================================================
+   ALERTAS
+========================================================= */
+.alert{
+
+    border:none !important;
+
+    border-radius:14px;
 }
 
-/* SPLIT */
-.split {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
+.alert-danger{
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #922c50,
+        #d94f7a
+    ) !important;
 }
 
-/* CARDS 3D */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 30px;
-  padding: 80px;
+.alert-warning{
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #03346E,
+        #6EACDA
+    ) !important;
 }
 
-.card-3d {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transition: 0.4s;
-  cursor: pointer;
+/* =========================================================
+   DIVISOR
+========================================================= */
+.form-divider{
+
+    border:none;
+
+    height:1px;
+
+    opacity:1;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
 }
 
-.card-3d:hover {
-  transform: rotateY(10deg) scale(1.05);
+/* =========================================================
+   INFO BOX
+========================================================= */
+.info-box{
+
+    border-radius:16px;
+
+    border:1px solid rgba(110,172,218,0.10) !important;
+
+    background:
+    rgba(255,255,255,0.04);
 }
 
-.card-3d img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+.info-title{
+
+    color:#fff;
+
+    font-weight:700;
 }
 
-.card-body {
-  padding: 20px;
+.info-box p{
+
+    color:rgba(255,255,255,0.72);
+
+    line-height:1.6;
 }
 
-.price {
-  color: cyan;
-  font-size: 1.3rem;
-  margin: 10px 0;
+/* =========================================================
+   BOTÃO TEMA
+========================================================= */
+.theme-toggle{
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #03346E,
+        #6EACDA
+    );
+
+    transition:.3s ease;
 }
 
-/* BOTÃO CARD */
-.btn-card {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: linear-gradient(45deg, #00e5ff, #7a00ff);
-  color: white;
-  border-radius: 10px;
+.theme-toggle:hover{
+
+    transform:
+    translateY(-2px)
+    scale(1.05);
 }
 
-/* REVEAL ANIMATION */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+html[data-theme="light"] body{
+
+    color:#0f172a;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f4f8ff 0%,
+        #dbeafe 50%,
+        #eef4ff 100%
+    );
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+html[data-theme="light"] .login-card{
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.96),
+        rgba(237,244,255,0.95)
+    ) !important;
+
+    border:1px solid rgba(27,86,253,0.08) !important;
+
+    box-shadow:
+    0 18px 40px rgba(27,86,253,0.12);
 }
 
-/* FOOTER */
-.footer {
-  padding: 50px;
-  background: black;
-  text-align: center;
+html[data-theme="light"] .card-header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #1B56FD,
+        #6EACDA
+    ) !important;
 }
 
-/* RESPONSIVO */
-@media(max-width:768px){
-  .split{
-    flex-direction: column;
-  }
+html[data-theme="light"] .form-label{
+    color:#334155;
+}
 
-  .hero h1{
-    font-size: 2.5rem;
-  }
+html[data-theme="light"] .form-control{
+
+    color:#021526 !important;
+
+    background:
+    rgba(27,86,253,0.05) !important;
+}
+
+html[data-theme="light"] .form-control::placeholder{
+    color:#64748b;
+}
+
+html[data-theme="light"] .back-link{
+    color:#334155;
+}
+
+html[data-theme="light"] .back-link:hover{
+    color:#1B56FD;
+}
+
+html[data-theme="light"] .info-box{
+
+    background:
+    rgba(27,86,253,0.04);
+}
+
+html[data-theme="light"] .info-box p{
+    color:#475569;
+}
+
+/* =========================================================
+   LOGO DARK MODE
+========================================================= */
+.logo-login{
+
+    width:140px;
+
+    transition:.3s ease;
+
+    content:url('/Imagens/logo2.png');
+}
+
+/* =========================================================
+   LOGO LIGHT MODE
+========================================================= */
+html[data-theme="light"] .logo-login{
+
+    content:url('/Imagens/logo3.png');
+}
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+@media(max-width:576px){
+
+    .card-body{
+        padding:24px 20px;
+    }
+
+    .card-header{
+        padding:20px;
+    }
 }
