@@ -1,965 +1,547 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Configurações básicas do documento -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wave Club — Locadora de Barcos e Navegação</title>
-
-    <!-- Importação do Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Importação de fontes profissionais (Google Fonts) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Importação de ícones (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- CSS personalizado -->
-    <link href="../css/index.css" rel="stylesheet">
-
-
-    <!-- Ícone da aba (favicon) -->
-    <link rel="icon" type="image/png" href="/Imagens/logofavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wave Club — Locadora de Barcos e Navegação</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="icon" type="image/png" href="/assets/img/logofavicon.png">
 </head>
 <body>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <!-- Configurações básicas -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Wave Club — Locadora de Barcos e Navegação</title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/index.css">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/Imagens/logofavicon.png">
-</head>
-
-<body>
-
-<!-- =========================================================
-     NAVBAR PREMIUM
-========================================================= -->
+<!-- ── NAVBAR ───────────────────────────────────────────────── -->
 <nav class="navbar navbar-expand-lg navbar-wave fixed-top">
-
-    <div class="container">
-
-        <!-- LOGO -->
-        <a class="navbar-brand" href="index.html">
-            <img src="/Imagens/logo2.png" alt="Wave Club">
-        </a>
-
-        <!-- BOTÃO MOBILE -->
-        <button class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarWaveClub"
-            aria-controls="navbarWaveClub"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
+  <div class="container">
+    <a class="navbar-brand" href="#inicio">
+      <img src="/assets/img/logo2.png" alt="Wave Club" style="height:100px; width:auto;">
+    </a>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarWaveClub">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarWaveClub">
+      <ul class="navbar-nav mx-auto gap-lg-5 text-center">
+        <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#aluguel">Aluguel</a></li>
+        <li class="nav-item"><a class="nav-link" href="#avaliacoes">Avaliações</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 navbar-btn-wrapper text-center">
+        <button id="theme-toggle" class="theme-toggle-btn">
+          <i class="fas fa-sun" id="theme-icon"></i>
         </button>
-
-        <!-- MENU -->
-        <div class="collapse navbar-collapse" id="navbarWaveClub">
-
-            <!-- LINKS -->
-            <ul class="navbar-nav mx-auto gap-lg-5 text-center">
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="#inicio">
-                        Início
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#quem-somos">
-                        Quem Somos
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#aluguel">
-                        Aluguel
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#avaliacoes">
-                        Avaliações
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#contato">
-                        Contato
-                    </a>
-                </li>
-
-            </ul>
-
-            <!-- BOTÃO -->
-            <div class="d-flex align-items-center gap-3 navbar-btn-wrapper text-center">
-
-                <!-- BOTÃO DARK/LIGHT -->
-                <button id="theme-toggle" class="theme-toggle-btn">
-                <i class="fas fa-sun" id="theme-icon"></i>
-                </button>
-
-                <!-- BOTÃO ÁREA RESTRITA -->
-                <a href="login.html" class="btn-area-restrita">
-
-                    <i class="fas fa-user-lock"></i>
-
-                    Área Restrita
-
-                </a>
-
-            </div>
-
-        </div>
+        <a href="/login" class="btn-area-restrita">
+          <i class="fas fa-user-lock"></i> Área Restrita
+        </a>
+      </div>
     </div>
+  </div>
 </nav>
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- ── HERO ─────────────────────────────────────────────────── -->
 <section id="inicio" class="hero hero-main d-flex align-items-center text-white">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-10">
-
-                 <h1 class="display-2 fw-bold mb-4">
-                 Bem-vindo ao Wave Club
-                </h1>
-
-                <p class="lead fs-4 mb-4">
-                    Experiências náuticas exclusivas com iates,
-                    lanchas e jet skis de alto padrão.
-                    Navegue com conforto, sofisticação e liberdade.
-                </p>
-
-                <a href="#aluguel"
-                class="btn btn-primary btn-lg fw-bold px-4 py-3">
-
-                    <i class="fas fa-anchor me-2"></i>
-
-                    Explore Nosso Catálogo
-
-                </a>
-
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <h1 class="display-2 fw-bold mb-4">Bem-vindo ao Wave Club</h1>
+        <p class="lead fs-4 mb-4">
+          Experiências náuticas exclusivas com iates, lanchas e jet skis de alto padrão.
+          Navegue com conforto, sofisticação e liberdade.
+        </p>
+        <a href="#aluguel" class="btn btn-primary btn-lg fw-bold px-4 py-3">
+          <i class="fas fa-anchor me-2"></i>Explore Nosso Catálogo
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- =========================================================
-     QUEM SOMOS PREMIUM
-========================================================= -->
+<!-- ── QUEM SOMOS ────────────────────────────────────────────── -->
 <section id="quem-somos" class="quem-somos-premium">
-        <div class="row justify-content-center text-center">
-
-            <div class="col-lg-9">
-
-                <!-- TAG -->
-                <div class="section-tag justify-content-center mb-4">
-                    <span></span>
-                    WAVE CLUB
-                    <span></span>
-                </div>
-
-                <!-- TÍTULO -->
-                <h2 class="quem-title">
-                    Quem Somos?
-                </h2>
-
-                <!-- LINHA -->
-                <div class="title-line mx-auto mb-5"></div>
-
-                <!-- TEXTO SECUNDÁRIO -->
-                <p class="quem-text mx-auto">
-                    A Wave Club nasceu para oferecer experiências náuticas
-                    premium com sofisticação, segurança e exclusividade.
-                    Trabalhamos com iates, lanchas e jet skis de alto padrão,
-                    proporcionando conforto absoluto em cada passeio.
-                </p>
-
-                <p class="quem-text mx-auto">
-                    Nosso compromisso é entregar excelência em cada detalhe,
-                    desde o atendimento personalizado até a qualidade
-                    impecável das embarcações.
-                </p>
-
-            </div>
-
-        </div>
-
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-9">
+      <div class="section-tag justify-content-center mb-4">
+        <span></span>WAVE CLUB<span></span>
+      </div>
+      <h2 class="quem-title">Quem Somos?</h2>
+      <div class="title-line mx-auto mb-5"></div>
+      <p class="quem-text mx-auto">
+        A Wave Club nasceu para oferecer experiências náuticas premium com sofisticação,
+        segurança e exclusividade. Trabalhamos com iates, lanchas e jet skis de alto padrão,
+        proporcionando conforto absoluto em cada passeio.
+      </p>
+      <p class="quem-text mx-auto">
+        Nosso compromisso é entregar excelência em cada detalhe,
+        desde o atendimento personalizado até a qualidade impecável das embarcações.
+      </p>
     </div>
-
+  </div>
 </section>
 
-<!-- =========================================================
-     ALUGUEL PREMIUM
-========================================================= -->
+<!-- ── ALUGUEL ───────────────────────────────────────────────── -->
 <section id="aluguel" class="aluguel-section text-white position-relative overflow-hidden">
-
-    <!-- EFEITOS -->
-    <div class="aluguel-glow glow-1"></div>
-    <div class="aluguel-glow glow-2"></div>
-
-    <div class="container position-relative z-2">
-
-        <div class="row justify-content-center text-center">
-
-            <div class="col-lg-9">
-
-
-                <h1 class="display-3 fw-bold mb-4 aluguel-title">
-                    Alugue e Aproveite o
-                    <span>Barco Ideal</span>
-                    Para Você
-                </h1>
-
-                <p class="lead aluguel-text mb-0">
-                    Embarcações revisadas, luxo absoluto e experiências
-                    exclusivas para transformar seus momentos no mar.
-                </p>
-
-            </div>
-
-        </div>
-
+  <div class="aluguel-glow glow-1"></div>
+  <div class="aluguel-glow glow-2"></div>
+  <div class="container position-relative z-2">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-9">
+        <h1 class="display-3 fw-bold mb-4 aluguel-title">
+          Alugue e Aproveite o <span>Barco Ideal</span> Para Você
+        </h1>
+        <p class="lead aluguel-text mb-0">
+          Embarcações revisadas, luxo absoluto e experiências exclusivas
+          para transformar seus momentos no mar.
+        </p>
+      </div>
     </div>
-
+  </div>
 </section>
 
-<!-- =========================================================
-     CARD DE PREÇOS
-========================================================= -->
+<!-- ── CARD DE PREÇOS ────────────────────────────────────────── -->
 <div class="container position-relative aluguel-prices-wrapper">
-
-    <div class="row justify-content-center">
-
-        <div class="col-lg-10">
-
-            <div class="card aluguel-prices-card border-0">
-
-                <div class="card-body p-4 p-lg-5">
-
-                    <div class="row text-center gy-4">
-
-                        <!-- IATES -->
-                        <div class="col-md-4">
-
-                            <div class="price-item">
-
-                                <div class="price-icon mb-3">
-                                    <img src="/Imagens/iconIate.png" class="rounded-circle "
-                                  width="100">
-                                </div>
-
-                                <h6 class="price-label">
-                                    IATES
-                                </h6>
-
-                                <h2 class="price-value">
-                                    R$10.000<span>/dia</span>
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-                        <!-- JET -->
-                        <div class="col-md-4">
-
-                            <div class="price-item price-middle">
-
-                                <div class="price-icon mb-3">
-                                    <img src="/Imagens/IconJet.png" class="rounded-circle "
-                                  width="100">>
-                                </div>
-
-                                <h6 class="price-label">
-                                    JET SKIS
-                                </h6>
-
-                                <h2 class="price-value">
-                                    R$800<span>/dia</span>
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-                        <!-- LANCHA -->
-                        <div class="col-md-4">
-
-                            <div class="price-item">
-
-                                <div class="price-icon mb-3">
-                                    <img src="/Imagens/IconLancha.png" class="rounded-circle "
-                                  width="100">
-                                </div>
-
-                                <h6 class="price-label">
-                                    LANCHAS
-                                </h6>
-
-                                <h2 class="price-value">
-                                    R$2.500<span>/dia</span>
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="card aluguel-prices-card border-0">
+        <div class="card-body p-4 p-lg-5">
+          <div class="row text-center gy-4">
+            <div class="col-md-4">
+              <div class="price-item">
+                <div class="price-icon mb-3">
+                  <img src="/assets/img/iconIate.png" class="rounded-circle" width="100">
                 </div>
-
+                <h6 class="price-label">IATES</h6>
+                <h2 class="price-value">R$10.000<span>/dia</span></h2>
+              </div>
             </div>
-
+            <div class="col-md-4">
+              <div class="price-item price-middle">
+                <div class="price-icon mb-3">
+                  <img src="/assets/img/IconJet.png" class="rounded-circle" width="100">
+                </div>
+                <h6 class="price-label">JET SKIS</h6>
+                <h2 class="price-value">R$800<span>/dia</span></h2>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="price-item">
+                <div class="price-icon mb-3">
+                  <img src="/assets/img/IconLancha.png" class="rounded-circle" width="100">
+                </div>
+                <h6 class="price-label">LANCHAS</h6>
+                <h2 class="price-value">R$2.500<span>/dia</span></h2>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </div>
 
-<!-- Seção principal da vitrine -->
+<!-- ── CATÁLOGO DINÂMICO ─────────────────────────────────────── -->
 <div class="container mb-5 mt-5 flex-grow-1">
-    <h2 class="text-center mb-4">
-        <i class="fas fa-ship text-primary me-2"></i>Catálogo de Veículos Marítimos
-    </h2>
+  <h2 class="text-center mb-4">
+    <i class="fas fa-ship text-primary me-2"></i>Catálogo de Veículos Marítimos
+  </h2>
 
-    <!-- Barra de status e filtros -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center bg-white p-3 rounded shadow-sm border mb-4 gap-3">
-
-        <!-- Contadores de veículos -->
-        <div class="text-center">
-            <span class="badge bg-secondary fs-6 shadow-sm mb-1" id="countTotal">Total: 9</span>
-            <span class="badge bg-success fs-6 me-2 shadow-sm mb-1" id="countDisponiveis">Disponíveis: 7</span>
-            <span class="badge bg-danger fs-6 me-2 shadow-sm mb-1" id="countIndisponiveis">Alugados: 2</span>
-        </div>
-
-        <!-- Botões de filtro -->
-        <div class="btn-group shadow-sm" role="group">
-            <input type="radio" class="btn-check filter-btn" name="filtroStatus" id="btnFiltroTodos" value="todos" checked>
-            <label class="btn btn-outline-primary" for="btnFiltroTodos">Todos</label>
-
-            <input type="radio" class="btn-check filter-btn" name="filtroStatus" id="btnFiltroDisponiveis" value="Disponível">
-            <label class="btn btn-outline-success" for="btnFiltroDisponiveis">Disponíveis</label>
-
-            <input type="radio" class="btn-check filter-btn" name="filtroStatus" id="btnFiltroAlugados" value="Alugado">
-            <label class="btn btn-outline-danger" for="btnFiltroAlugados">Alugados</label>
-        </div>
+  <!-- Filtros + contadores -->
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center
+              bg-white p-3 rounded shadow-sm border mb-4 gap-3">
+    <div class="text-center">
+      <span class="badge bg-secondary fs-6 shadow-sm mb-1" id="countTotal">Total: —</span>
+      <span class="badge bg-success fs-6 me-2 shadow-sm mb-1" id="countDisponiveis">Disponíveis: —</span>
+      <span class="badge bg-danger fs-6 me-2 shadow-sm mb-1" id="countAlugados">Alugados: —</span>
     </div>
-
-    <!-- Grid de veículos -->
-    <div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-    <!-- CARD 1 -->
-<div class="col">
-  <div class="card h-100 shadow-sm border-0 card-hover">
-    
-    <div class="position-relative" style="height:400px;">
-      <img src="../../Imagens/Jet4.png" class="w-100 h-100" style="object-fit:cover;">
-      <span class="badge bg-warning position-absolute top-0 end-0 m-2">Exclusivo</span>
+    <div class="btn-group shadow-sm" role="group">
+      <input type="radio" class="btn-check" name="filtroStatus" id="btnTodos" value="todos" checked>
+      <label class="btn btn-outline-primary" for="btnTodos">Todos</label>
+      <input type="radio" class="btn-check" name="filtroStatus" id="btnDisp" value="Disponível">
+      <label class="btn btn-outline-success" for="btnDisp">Disponíveis</label>
+      <input type="radio" class="btn-check" name="filtroStatus" id="btnAlug" value="Alugado">
+      <label class="btn btn-outline-danger" for="btnAlug">Alugados</label>
     </div>
+    <!-- Filtro por tipo -->
+    <div class="btn-group shadow-sm" role="group">
+      <input type="radio" class="btn-check" name="filtroTipo" id="tipoTodos" value="" checked>
+      <label class="btn btn-outline-secondary" for="tipoTodos">Todos</label>
+      <input type="radio" class="btn-check" name="filtroTipo" id="tipoIate" value="Iate">
+      <label class="btn btn-outline-secondary" for="tipoIate">Iates</label>
+      <input type="radio" class="btn-check" name="filtroTipo" id="tipoJet" value="Jet Ski">
+      <label class="btn btn-outline-secondary" for="tipoJet">Jet Skis</label>
+      <input type="radio" class="btn-check" name="filtroTipo" id="tipoLancha" value="Lancha">
+      <label class="btn btn-outline-secondary" for="tipoLancha">Lanchas</label>
+    </div>
+  </div>
 
-    <div class="card-body d-flex flex-column">
-
-      <h5 class="fw-bold">
-    HydraJet X
-      </h5>
-
-      <!-- PREÇO DESTAQUE -->
-      <div class="mb-2">
-        <span class="text-muted text-decoration-line-through me-2">
-          R$ 2.500
-        </span>
-        <span class="fw-bold text-success fs-5">
-        R$ 2.000/diária
-        </span>
-      </div>
-
-      <p class="small text-muted mb-1">Pessoas: 1 a 2</p>
-      <p class="small text-muted mb-1">Modelo: 2024</p>
-      <p class="small text-muted mb-1">Incluso: Limpeza e Manutenção</p>
-      <p class="small text-muted mb-3">Combustível: R$70–110/h</p>
-
-      <span class="badge bg-light text-dark border mb-3">Tipo: Jet Ski</span>
-
-      <div class="mt-auto">
-        <button class="btn btn-primary w-100"
-         data-bs-toggle="modal"
-         data-bs-target="#modalInteresse">
-            Tenho Interesse
-        </button>
-      </div>
+  <!-- Grid de cards — gerado pelo JS -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="gridEmbarcacoes">
+    <div class="col-12 text-center py-5">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-3 text-white">Carregando catálogo…</p>
     </div>
   </div>
 </div>
 
-    <!-- CARD 2 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/iATE2.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">
-        Azimut 27 Metri
-          </h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 15.000/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: até 16</p>
-          <p class="small text-muted mb-1"> Modelo: 2021</p>
-          <p class="small text-muted mb-1"> Incluso: Suítes + jacuzzi</p>
-          <p class="small text-muted mb-3"> Combustível: R$1.800–2.400/h</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Iate</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/Lancha4.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">
-        Proa Aberta
-          </h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 2.500/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 5 a 8</p>
-          <p class="small text-muted mb-1"> Modelo: 2023</p>
-          <p class="small text-muted mb-1"> Incluso: Marinheiro</p>
-          <p class="small text-muted mb-3"> Combustível incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Lancha</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 4 (ALUGADO) -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 opacity-75">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/IATE3.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Superyacht</h5>
-
-          <!-- PREÇO DESTACADO -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 21.000/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 10 a 16 pessoas</p>
-          <p class="small text-muted mb-1"> Modelo: 2020</p>
-          <p class="small text-muted mb-1"> Incluso: Jacuzzi, área gourmet, sistema de som premium</p>
-          <p class="small text-muted mb-3"> Combustível incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Iate</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-secondary w-100" disabled>Indisponível</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/Jet1.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Kawasaki Ultra 310LX</h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 1.300/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 2</p>
-          <p class="small text-muted mb-1"> Modelo: 2025</p>
-          <p class="small text-muted mb-1"> Incluso: Limpeza e manutenção</p>
-          <p class="small text-muted mb-3"> Combustível: Incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Jet Ski</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 opacity-75">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/Jet2.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Sea-Doo RXP-X 325</h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 1.700/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 2</p>
-          <p class="small text-muted mb-1"> Modelo: 2026</p>
-          <p class="small text-muted mb-1"> Incluso: Seguranças e Manutenção</p>
-          <p class="small text-muted mb-3"> Combustível incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Jet Ski</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-secondary w-100" disabled>Indisponível</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 7 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/Jet3.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Jet Ski Kawasaki Ultra 310R</h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 1.200/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 2</p>
-          <p class="small text-muted mb-1"> Modelo: 2020</p>
-          <p class="small text-muted mb-1"> Incluso: Limpeza e Manutenção</p>
-          <p class="small text-muted mb-3"> Combustível: Incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Jet Ski</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 8 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/Lancha1.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Lancha Real 280 Malou Blue</h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 5.000/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 13 pessoas</p>
-          <p class="small text-muted mb-1"> Modelo: 2022</p>
-          <p class="small text-muted mb-1"> Incluso: Marinheiro, Kit de Segurança</p>
-          <p class="small text-muted mb-3"> Combustível incluso</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Lancha</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 9 -->
-    <div class="col">
-      <div class="card h-100 shadow-sm border-0 card-hover">
-        <div class="position-relative" style="height:400px;">
-          <img src="../../Imagens/lancha2.png" class="w-100 h-100" style="object-fit:cover;">
-          <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>
-        </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="fw-bold">Lancha Yacxo 357</h5>
-
-          <!-- PREÇO DESTAQUE -->
-            <div class="mb-2">
-            <span class="fw-bold text-success fs-5">
-            R$ 5.200/diária
-            </span>
-            </div>
-
-          <p class="small text-muted mb-1"> Pessoas: 12 pessoas</p>
-          <p class="small text-muted mb-1"> Modelo: 2011</p>
-          <p class="small text-muted mb-1"> Incluso: Ar-condicionado, cabines para 6 pessoas e
-             cozinha completa.</p>
-
-          <span class="badge bg-light text-dark border mb-3">Tipo: Lancha</span>
-
-          <div class="mt-auto">
-            <button class="btn btn-primary w-100"
-             data-bs-toggle="modal"
-             data-bs-target="#modalInteresse">
-                Tenho Interesse
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  </div>
-</div>
-        
-
-    </div>
-</div>
-
-<!-- Modal de interesse -->
+<!-- ── MODAL INTERESSE ───────────────────────────────────────── -->
 <div class="modal fade" id="modalInteresse" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg">
-
-            <!-- Cabeçalho do modal -->
-            <div class="modal-header bg-primary text-white">
-                <div>
-                    <h5 class="modal-title fw-bold mb-0">
-                        <i class="fas fa-handshake me-2"></i>Tenho Interesse
-                    </h5>
-                    <small class="opacity-75" id="interesseVeiculoNome">Veículo Exemplo</small>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-
-            <!-- Corpo do modal -->
-            <div class="modal-body p-4">
-                <input type="hidden" id="interesseVeiculoId">
-                <p class="text-muted mb-4">Preencha seus dados e entraremos em contato.</p>
-
-                <!-- Campo nome -->
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">
-                        <i class="fas fa-user text-primary me-1"></i>Seu nome
-                    </label>
-                    <input type="text" class="form-control form-control-lg" id="interesseNome" placeholder="Ex: João da Silva">
-                </div>
-
-                <!-- Campo telefone -->
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">
-                        <i class="fas fa-phone text-primary me-1"></i>Seu telefone
-                    </label>
-                    <input type="text" class="form-control form-control-lg" id="interesseTelefone" placeholder="Ex: (11) 91234-5678">
-                </div>
-            </div>
-
-            <!-- Rodapé do modal -->
-            <div class="modal-footer bg-light">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary fw-bold px-4">Enviar</button>
-            </div>
-
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      <div class="modal-header bg-primary text-white">
+        <div>
+          <h5 class="modal-title fw-bold mb-0">
+            <i class="fas fa-handshake me-2"></i>Tenho Interesse
+          </h5>
+          <small class="opacity-75" id="interesseNomeVeiculo">—</small>
         </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <input type="hidden" id="interesseVeiculoId">
+        <p class="text-muted mb-4">Preencha seus dados e entraremos em contato.</p>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">
+            <i class="fas fa-user text-primary me-1"></i>Seu nome
+          </label>
+          <input type="text" class="form-control form-control-lg" id="interesseNome" placeholder="Ex: João da Silva">
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">
+            <i class="fas fa-phone text-primary me-1"></i>Seu telefone
+          </label>
+          <input type="text" class="form-control form-control-lg" id="interesseTelefone" placeholder="Ex: (11) 91234-5678">
+        </div>
+        <p id="interesseErro" class="text-danger" style="display:none;"></p>
+      </div>
+      <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary fw-bold px-4" onclick="enviarInteresse()">Enviar</button>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- AVALIAÇÕES -->
+<!-- ── AVALIAÇÕES ────────────────────────────────────────────── -->
 <section id="avaliacoes" class="avaliacoes-section">
-    <div class="container position-relative">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">O que dizem nossos navegantes?</h2>
-        </div>
-        
-        <div id="carouselAvaliacoes" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner px-lg-5">
-                <!-- Slide 1 -->
-                <div class="carousel-item active" data-bs-interval="5000">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-12 col-md-4">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCZlbGXt5IXQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707440624894?e=1781740800&v=beta&t=JjisW06GHbpd2kVIBgm4_xFSiZqI3vxZaPlwyQtGmUE" 
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Denis">
-                                <h5 class="fw-bold">Dênis dos Anjos</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="small opacity-75">"Atendimento excelente e embarcação impecável. Experiência nota 10!"</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/C4D03AQGSjwlVzBOKZQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1657554131696?e=1781740800&v=beta&t=sTJ7Zpbo0hx87trlQS5I0fc4L6DKaWRaE5CM6k51ofg" 
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Ignacio">
-                                <h5 class="fw-bold">Ignacio Neto</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="small opacity-75">"Serviço organizado e seguro. Recomendo a todos que buscam lazer!"</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHAj4QwBEkmTA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1706192163923?e=1781740800&v=beta&t=hMUcekXkXmZS3ODVOypFg-ZMJYBpDTmyNff78j5BF9Y" 
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="André">
-                                <h5 class="fw-bold">André Luis</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="small opacity-75">"Jet ski novíssimo e suporte impecável na marina. Voltarei sempre."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slide 2 -->
-                <div class="carousel-item" data-bs-interval="5000">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-12 col-md-4">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGkuouY5TWRTg/profile-displayphoto-crop_800_800/B4EZsy1fsCKMAI-/0/1766084444953?e=1781740800&v=beta&t=rRbtBAptEgkEjPeXEtVSSN1-iCLhLyPcBFIxGp-ek6Y"
-                                 class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Paulo">
-                                <h5 class="fw-bold">Paulo Camargo</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="small opacity-75">"Um dia inesquecível no mar! O iate superou todas as expectativas."</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="https://media.licdn.com/dms/image/v2/C5603AQHl6N1PrtW1LA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517443229114?e=1781740800&v=beta&t=Un3AR3fOrFPf5keYJ53MxKup3dTuRMUCkO-4Y2siQiU" 
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Valmir Jesus">
-                                <h5 class="fw-bold">Valmir Jesus</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="small opacity-75">"Melhor custo-benefício da região. Atendimento muito ágil e cordial."</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card-avaliacao text-center h-100">
-                                <img src="../../Imagens/giba.png"
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Gilberto Braga">
-                                <h5 class="fw-bold">Gilberto Braga</h5>
-                                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                                <p class="small opacity-75">"Equipe nota mil! Tivemos um passeio de lancha fantástico em família."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Controles do Carrossel (Setas) -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvaliacoes" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselAvaliacoes" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
-        </div>
+  <div class="container position-relative">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">O que dizem nossos navegantes?</h2>
     </div>
+    <div id="carouselAvaliacoes" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner px-lg-5">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-4">
+              <div class="card-avaliacao text-center h-100">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCZlbGXt5IXQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707440624894?e=1781740800&v=beta&t=JjisW06GHbpd2kVIBgm4_xFSiZqI3vxZaPlwyQtGmUE" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="Denis">
+                <h5 class="fw-bold">Dênis dos Anjos</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="small opacity-75">"Atendimento excelente e embarcação impecável. Experiência nota 10!"</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card-avaliacao text-center h-100">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQGSjwlVzBOKZQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1657554131696?e=1781740800&v=beta&t=sTJ7Zpbo0hx87trlQS5I0fc4L6DKaWRaE5CM6k51ofg" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="Ignacio">
+                <h5 class="fw-bold">Ignacio Neto</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="small opacity-75">"Serviço organizado e seguro. Recomendo a todos que buscam lazer!"</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card-avaliacao text-center h-100">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHAj4QwBEkmTA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1706192163923?e=1781740800&v=beta&t=hMUcekXkXmZS3ODVOypFg-ZMJYBpDTmyNff78j5BF9Y" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="André">
+                <h5 class="fw-bold">André Luis</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="small opacity-75">"Jet ski novíssimo e suporte impecável na marina. Voltarei sempre."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-4">
+              <div class="card-avaliacao text-center h-100">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGkuouY5TWRTg/profile-displayphoto-crop_800_800/B4EZsy1fsCKMAI-/0/1766084444953?e=1781740800&v=beta&t=rRbtBAptEgkEjPeXEtVSSN1-iCLhLyPcBFIxGp-ek6Y" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="Paulo">
+                <h5 class="fw-bold">Paulo Camargo</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="small opacity-75">"Um dia inesquecível no mar! O iate superou todas as expectativas."</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card-avaliacao text-center h-100">
+                <img src="https://media.licdn.com/dms/image/v2/C5603AQHl6N1PrtW1LA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517443229114?e=1781740800&v=beta&t=Un3AR3fOrFPf5keYJ53MxKup3dTuRMUCkO-4Y2siQiU" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="Valmir">
+                <h5 class="fw-bold">Valmir Jesus</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="small opacity-75">"Melhor custo-benefício da região. Atendimento muito ágil e cordial."</p>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="card-avaliacao text-center h-100">
+                <img src="/assets/img/giba.png" class="rounded-circle mb-3 shadow-sm" style="width:80px;height:80px;object-fit:cover;object-position:center top;" alt="Gilberto">
+                <h5 class="fw-bold">Gilberto Braga</h5>
+                <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p class="small opacity-75">"Equipe nota mil! Tivemos um passeio de lancha fantástico em família."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvaliacoes" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselAvaliacoes" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER / CONTATO -->
+<!-- ── FOOTER / CONTATO ──────────────────────────────────────── -->
 <div class="footer-divider"></div>
-
-<footer class="footer-main">
 <footer id="contato" class="footer-main">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-6 footer-about">
-                <h5 class="footer-title">Wave Club</h5>
-                <p>Transformando o sonho de navegar em realidade com segurança e luxo.</p>
-                <div class="d-flex gap-3 mt-3">
-                    <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-title">Links</h5>
-                <ul class="list-unstyled">
-                <li><a href="#inicio" class="text-decoration-none text-white">Início</a></li>
-                <li><a href="#quem-somos" class="text-decoration-none text-white">Sobre nós</a></li>
-                <li><a href="#aluguel" class="text-decoration-none text-white">Aluguel</a></li>
-                <li><a href="#avaliacoes" class="text-decoration-none text-white">Avaliações</a></li>
-                <li><a href="#contato" class="text-decoration-none text-white">Contato</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-title">Contato</h5>
-                <p class="text-white mb-1"><i class="fas fa-phone me-2"></i> (11) 99999-9999</p>
-                <p class="text-white"><i class="fas fa-envelope me-2"></i> administrador@waveclub.com.br</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-title">Mensagem</h5>
-                <form class="footer-contact-form">
-                    <input type="text" class="form-control mb-2" placeholder="Nome">
-                    <textarea class="form-control mb-2" rows="2" placeholder="Mensagem"></textarea>
-                    <button type="submit" class="btn btn-footer-send">Enviar</button>
-                </form>
-            </div>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <h5 class="footer-title">Wave Club</h5>
+        <p>Transformando o sonho de navegar em realidade com segurança e luxo.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <div class="footer-bottom mt-5 pt-3 border-top border-secondary text-center">
-            <p class="text-white mb-0">&copy; Wave Club 2026 — Todos os direitos reservados.</p>
-        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-title">Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#inicio" class="text-decoration-none text-white">Início</a></li>
+          <li><a href="#quem-somos" class="text-decoration-none text-white">Sobre nós</a></li>
+          <li><a href="#aluguel" class="text-decoration-none text-white">Aluguel</a></li>
+          <li><a href="#avaliacoes" class="text-decoration-none text-white">Avaliações</a></li>
+          <li><a href="#contato" class="text-decoration-none text-white">Contato</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">Contato</h5>
+        <p class="text-white mb-1"><i class="fas fa-phone me-2"></i>(11) 99999-9999</p>
+        <p class="text-white"><i class="fas fa-envelope me-2"></i>administrador@waveclub.com.br</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">Mensagem</h5>
+        <form id="formContato" onsubmit="enviarContato(event)">
+          <input type="text" class="form-control mb-2" id="contatoNome" placeholder="Nome">
+          <textarea class="form-control mb-2" id="contatoMsg" rows="2" placeholder="Mensagem"></textarea>
+          <button type="submit" class="btn btn-footer-send">Enviar</button>
+        </form>
+      </div>
     </div>
+    <div class="footer-bottom mt-5 pt-3 border-top border-secondary text-center">
+      <p class="text-white mb-0">&copy; Wave Club 2026 — Todos os direitos reservados.</p>
+    </div>
+  </div>
 </footer>
 
-
-<!-- Botão voltar ao topo (seta para cima) -->
-<a
-  href="#inicio"
-  class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 me-4 mb-4"
-  style="width: 50px; height: 50px; z-index: 10; text-decoration: none; display: flex; align-items: center; justify-content: center;"
-  title="Voltar ao topo"
->
+<!-- Botão voltar ao topo -->
+<a href="#inicio" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 me-4 mb-4"
+   style="width:50px;height:50px;z-index:10;display:flex;align-items:center;justify-content:center;">
   <i class="fas fa-chevron-up text-white"></i>
 </a>
 
-<!-- Script -->
+<!-- Toast -->
+<div id="toastWave" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
+  background:#021526;color:white;border:1px solid rgba(110,172,218,.3);
+  padding:.8rem 1.5rem;border-radius:8px;z-index:9999;display:none;
+  font-family:'Montserrat',sans-serif;font-size:.95rem;box-shadow:0 8px 24px rgba(0,0,0,.4);">
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
+/* ── Estado ──────────────────────────────────────────────────── */
+let todasEmbarcacoes = [];
+let filtroStatus = 'todos';
+let filtroTipo   = '';
 
-/* ALTERAR TEMA */
-themeToggle.addEventListener('click', () => {
+/* ── Init ────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  carregarEmbarcacoes();
+  initFiltros();
+  initTema();
+});
 
+/* ── Tema dark/light ─────────────────────────────────────────── */
+function initTema() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  if (saved === 'light') document.body.classList.add('light-mode');
+  atualizarIconeTema();
+  document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    atualizarIconeTema();
+  });
+}
+function atualizarIconeTema() {
+  const icon = document.getElementById('theme-icon');
+  icon.className = document.body.classList.contains('light-mode') ? 'fas fa-moon' : 'fas fa-sun';
+}
 
-    if(document.body.classList.contains('light-mode')){
+/* ── Carregar embarcações da API ─────────────────────────────── */
+async function carregarEmbarcacoes() {
+  try {
+    const res = await fetch('/api/public/embarcacoes');
+    todasEmbarcacoes = await res.json();
+    atualizarContadores();
+    renderizarCatalogo();
+  } catch(e) {
+    document.getElementById('gridEmbarcacoes').innerHTML =
+      '<p class="text-danger text-center col-12">Erro ao carregar catálogo.</p>';
+  }
+}
 
-        localStorage.setItem('theme','light');
+/* ── Contadores ──────────────────────────────────────────────── */
+function atualizarContadores() {
+  const disp = todasEmbarcacoes.filter(e => e.status === 'Disponível').length;
+  const alug = todasEmbarcacoes.filter(e => e.status === 'Alugado').length;
+  document.getElementById('countTotal').textContent       = `Total: ${todasEmbarcacoes.length}`;
+  document.getElementById('countDisponiveis').textContent = `Disponíveis: ${disp}`;
+  document.getElementById('countAlugados').textContent    = `Alugados: ${alug}`;
+}
 
-        /* Lua */
-        themeIcon.className = 'fas fa-moon';
+/* ── Filtros ─────────────────────────────────────────────────── */
+function initFiltros() {
+  document.querySelectorAll('[name="filtroStatus"]').forEach(el => {
+    el.addEventListener('change', e => { filtroStatus = e.target.value; renderizarCatalogo(); });
+  });
+  document.querySelectorAll('[name="filtroTipo"]').forEach(el => {
+    el.addEventListener('change', e => { filtroTipo = e.target.value; renderizarCatalogo(); });
+  });
+}
 
-    }else{
+/* ── Renderizar grid ─────────────────────────────────────────── */
+function renderizarCatalogo() {
+  const lista = todasEmbarcacoes.filter(e => {
+    const statusOk = filtroStatus === 'todos' || e.status === filtroStatus;
+    const tipoOk   = !filtroTipo  || e.tipo === filtroTipo;
+    return statusOk && tipoOk;
+  });
 
-        localStorage.setItem('theme','dark');
+  const grid = document.getElementById('gridEmbarcacoes');
 
-        /* Sol*/
-        themeIcon.className = 'fas fa-sun';
+  if (!lista.length) {
+    grid.innerHTML = '<p class="text-white text-center col-12 py-5">Nenhuma embarcação encontrada.</p>';
+    return;
+  }
+
+  grid.innerHTML = lista.map(e => {
+    const capa       = resolverImagem(e.imagem);
+    const disponivel = e.status === 'Disponível';
+    const badgeStatus = disponivel
+      ? '<span class="badge bg-success position-absolute top-0 end-0 m-2">Disponível</span>'
+      : '<span class="badge bg-danger position-absolute top-0 end-0 m-2">Alugado</span>';
+    const badgeDest = e.destaque
+      ? '<span class="badge bg-warning position-absolute top-0 start-0 m-2">Exclusivo</span>' : '';
+    const precoAntigo = e.preco_antigo
+      ? `<span class="text-muted text-decoration-line-through me-2">R$ ${parseFloat(e.preco_antigo).toLocaleString('pt-BR')}</span>` : '';
+    const btnAcao = disponivel
+      ? `<button class="btn btn-primary w-100" onclick="abrirInteresse(${e.id},'${e.modelo.replace(/'/g,"\\'")}')">Tenho Interesse</button>`
+      : `<button class="btn btn-secondary w-100" disabled>Indisponível</button>`;
+    const combustivel = e.combustivel
+      ? `<p class="small text-muted mb-3">Combustível: ${e.combustivel}</p>` : '';
+
+    return `
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 ${disponivel?'card-hover':'opacity-75'}">
+          <div class="position-relative" style="height:400px;">
+            <img src="${capa}" class="w-100 h-100" style="object-fit:cover;" alt="${e.modelo}">
+            ${badgeStatus}${badgeDest}
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="fw-bold">${e.modelo}</h5>
+            <div class="mb-2">
+              ${precoAntigo}
+              <span class="fw-bold text-success fs-5">R$ ${parseFloat(e.preco_diaria).toLocaleString('pt-BR')}/diária</span>
+            </div>
+            <p class="small text-muted mb-1">Pessoas: ${e.pessoas}</p>
+            <p class="small text-muted mb-1">Modelo: ${e.ano_modelo}</p>
+            <p class="small text-muted mb-1">Incluso: ${e.incluso}</p>
+            ${combustivel}
+            <span class="badge bg-light text-dark border mb-3">Tipo: ${e.tipo}</span>
+            <div class="mt-auto">${btnAcao}</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+/* ── Modal interesse ─────────────────────────────────────────── */
+function abrirInteresse(id, nome) {
+  document.getElementById('interesseVeiculoId').value = id;
+  document.getElementById('interesseNomeVeiculo').textContent = nome;
+  document.getElementById('interesseNome').value     = '';
+  document.getElementById('interesseTelefone').value = '';
+  document.getElementById('interesseErro').style.display = 'none';
+  new bootstrap.Modal(document.getElementById('modalInteresse')).show();
+}
+
+async function enviarInteresse() {
+  const id       = document.getElementById('interesseVeiculoId').value;
+  const nome     = document.getElementById('interesseNome').value.trim();
+  const telefone = document.getElementById('interesseTelefone').value.trim();
+  const erroEl   = document.getElementById('interesseErro');
+
+  if (!nome || !telefone) {
+    erroEl.textContent = 'Preencha nome e telefone.';
+    erroEl.style.display = 'block';
+    return;
+  }
+
+  try {
+    const res  = await fetch('/api/public/reservas', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ embarcacao_id: id, cliente_nome: nome, cliente_telefone: telefone })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      bootstrap.Modal.getInstance(document.getElementById('modalInteresse')).hide();
+      mostrarToast('✅ ' + data.mensagem);
+    } else {
+      erroEl.textContent = data.erro || 'Erro ao enviar.';
+      erroEl.style.display = 'block';
     }
-});
+  } catch(e) {
+    erroEl.textContent = 'Erro de conexão.';
+    erroEl.style.display = 'block';
+  }
+}
 
-/* CARREGAR TEMA */
-window.addEventListener('load', () => {
+/* ── Contato footer ──────────────────────────────────────────── */
+function enviarContato(e) {
+  e.preventDefault();
+  mostrarToast('✅ Mensagem enviada! Entraremos em contato.');
+  document.getElementById('formContato').reset();
+}
 
-    const savedTheme = localStorage.getItem('theme');
+/* ── Utilitários ─────────────────────────────────────────────── */
+function resolverImagem(imagem) {
+  if (!imagem) return '/assets/img/MainIate.jpg';
+  if (imagem.startsWith('http')) return imagem;
+  if (imagem.includes('/')) return imagem;
+  // Verifica se é asset original ou upload
+  const assets = ['IATE','iATE','Jet','Lancha','MainIate','giba','logo','icon','Icon',
+                   'IMGaluguel','mar2','logofavicon'];
+  return assets.some(n => imagem.startsWith(n))
+    ? `/assets/img/${imagem}` : `/uploads/${imagem}`;
+}
 
-    if(savedTheme === 'light'){
-
-        document.body.classList.add('light-mode');
-
-        themeIcon.className = 'fas fa-moon';
-
-    }else{
-
-        themeIcon.className = 'fas fa-sun';
-    }
-});
+function mostrarToast(msg) {
+  const t = document.getElementById('toastWave');
+  t.textContent   = msg;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 3500);
+}
 </script>
-
 </body>
 </html>

@@ -100,13 +100,10 @@ section{
 }
 
 /* LOGO */
-.navbar-brand img{
-
-    width:145px;
-
-    border-radius:50%;
-
-    transition:.3s ease;
+.navbar-brand img {
+    width: 145px;
+    border-radius: 0;
+    transition: .3s ease;
 }
 
 .navbar-brand:hover img{
@@ -177,7 +174,7 @@ section{
         rgba(2,21,38,0.70),
         rgba(2,21,38,0.82)
     ),
-    url('/Imagens/MainIate.jpg')
+    url('/assets/img/MainIate.jpg')
     center center/cover no-repeat;
 }
 
@@ -716,13 +713,10 @@ section{
    CARDS
 ========================================================= */
 .card,
-.card-avaliacao{
-
-    overflow:hidden;
-
-    border-radius:26px !important;
-
-    border:1px solid rgba(110,172,218,0.10) !important;
+.card-avaliacao {
+    overflow: visible;
+    border-radius: 26px !important;
+    padding: 2rem 1.5rem 1.5rem;
 
     background:
     linear-gradient(
@@ -1017,7 +1011,7 @@ body.light-mode .hero-main{
         rgba(0,0,0,0.45),
         rgba(0,0,0,0.55)
     ),
-    url('/Imagens/MainIate.jpg')
+    url('/assets/img/MainIate.jpg')
     center center/cover no-repeat;
 }
 
@@ -1207,8 +1201,8 @@ body.light-mode .theme-toggle-btn{
 }
 
 /* LOGO */
-body.light-mode .navbar-brand img{
-    content:url('/Imagens/logo3.png');
+body.light-mode .navbar-brand img {
+    content: url('/assets/img/logo3.png');
 }
 
 /* SETAS CARROSSEL */
