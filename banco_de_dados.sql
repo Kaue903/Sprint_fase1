@@ -46,11 +46,18 @@ CREATE TABLE IF NOT EXISTS embarcacoes (
 -- TABELA DE RESERVAS (histórico de interesse/aluguéis)
 -- ============================================================
 CREATE TABLE IF NOT EXISTS reservas (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    embarcacao_id   INT          NOT NULL,
-    cliente_nome    VARCHAR(100) NOT NULL,
-    cliente_telefone VARCHAR(20) NOT NULL,
-    criado_em       TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    embarcacao_id    INT          NOT NULL,
+    cliente_nome     VARCHAR(100) NOT NULL,
+    cliente_telefone VARCHAR(20)  NOT NULL,
+    forma_pagamento  ENUM('Pix','Cartão de Crédito','Cartão de Débito','Boleto','Dinheiro') DEFAULT NULL,
+    data_inicio      DATE         DEFAULT NULL,
+    data_fim         DATE         DEFAULT NULL,
+    dias             INT          DEFAULT NULL,
+    valor_total      DECIMAL(10,2) DEFAULT NULL,
+    tipo_solicitacao ENUM('interesse','aluguel') NOT NULL DEFAULT 'interesse',
+    status           ENUM('Pendente','Confirmada','Cancelada') NOT NULL DEFAULT 'Pendente',
+    criado_em        TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (embarcacao_id) REFERENCES embarcacoes(id) ON DELETE CASCADE
 );
 

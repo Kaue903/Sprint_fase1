@@ -673,12 +673,30 @@ async function carregarReservas() {
 
     container.innerHTML = reservas.map(r => {
       const data = new Date(r.criado_em).toLocaleDateString('pt-BR');
+      const ehAluguel = r.tipo_solicitacao === 'aluguel';
+
+      const badgeTipo = ehAluguel
+        ? '<span class="badge bg-success ms-2"><i class="fas fa-key me-1"></i>Aluguel</span>'
+        : '<span class="badge bg-secondary ms-2"><i class="fas fa-handshake me-1"></i>Interesse</span>';
+
+      const detalhesAluguel = ehAluguel ? `
+          <div class="text-muted small mt-1">
+            <i class="fas fa-calendar-alt me-1"></i>${formatarData(r.data_inicio)} a ${formatarData(r.data_fim)}
+            (${r.dias} ${r.dias === 1 ? 'diária' : 'diárias'})
+            &nbsp;|&nbsp;
+            <i class="fas fa-credit-card me-1"></i>${r.forma_pagamento || '—'}
+            &nbsp;|&nbsp;
+            <strong class="text-success">Total: R$ ${parseFloat(r.valor_total || 0).toLocaleString('pt-BR', {minimumFractionDigits:2})}</strong>
+          </div>` : '';
+
       return `
         <div class="reserva-row d-flex justify-content-between align-items-center flex-wrap gap-2">
           <div>
             <span class="fw-bold">${r.cliente_nome}</span>
             <span class="text-muted ms-2">${r.cliente_telefone}</span>
             <span class="badge bg-primary ms-2">${r.tipo}: ${r.modelo}</span>
+            ${badgeTipo}
+            ${detalhesAluguel}
           </div>
           <div class="d-flex align-items-center gap-2">
             <small class="text-muted">${data}</small>
@@ -721,6 +739,12 @@ function calcularOrcamento() {
 }
 
 /* ── Utilitários ─────────────────────────────────────────────── */
+function formatarData(dataStr) {
+  if (!dataStr) return '—';
+  const [ano, mes, dia] = String(dataStr).slice(0,10).split('-');
+  return `${dia}/${mes}/${ano}`;
+}
+
 function resolverImagem(imagem) {
   if (!imagem) return '/assets/img/MainIate.jpg';
   if (imagem.startsWith('http')) return imagem;

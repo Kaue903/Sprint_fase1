@@ -187,44 +187,6 @@
   </div>
 </div>
 
-<!-- ── MODAL INTERESSE ───────────────────────────────────────── -->
-<div class="modal fade" id="modalInteresse" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg">
-      <div class="modal-header bg-primary text-white">
-        <div>
-          <h5 class="modal-title fw-bold mb-0">
-            <i class="fas fa-handshake me-2"></i>Tenho Interesse
-          </h5>
-          <small class="opacity-75" id="interesseNomeVeiculo">—</small>
-        </div>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body p-4">
-        <input type="hidden" id="interesseVeiculoId">
-        <p class="text-muted mb-4">Preencha seus dados e entraremos em contato.</p>
-        <div class="mb-4">
-          <label class="form-label fw-semibold">
-            <i class="fas fa-user text-primary me-1"></i>Seu nome
-          </label>
-          <input type="text" class="form-control form-control-lg" id="interesseNome" placeholder="Ex: João da Silva">
-        </div>
-        <div class="mb-4">
-          <label class="form-label fw-semibold">
-            <i class="fas fa-phone text-primary me-1"></i>Seu telefone
-          </label>
-          <input type="text" class="form-control form-control-lg" id="interesseTelefone" placeholder="Ex: (11) 91234-5678">
-        </div>
-        <p id="interesseErro" class="text-danger" style="display:none;"></p>
-      </div>
-      <div class="modal-footer bg-light">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary fw-bold px-4" onclick="enviarInteresse()">Enviar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ── AVALIAÇÕES ────────────────────────────────────────────── -->
 <section id="avaliacoes" class="avaliacoes-section">
   <div class="container position-relative">
@@ -445,7 +407,7 @@ function renderizarCatalogo() {
     const precoAntigo = e.preco_antigo
       ? `<span class="text-muted text-decoration-line-through me-2">R$ ${parseFloat(e.preco_antigo).toLocaleString('pt-BR')}</span>` : '';
     const btnAcao = disponivel
-      ? `<button class="btn btn-primary w-100" onclick="abrirInteresse(${e.id},'${e.modelo.replace(/'/g,"\\'")}')">Tenho Interesse</button>`
+      ? `<a href="/login" class="btn btn-primary w-100"><i class="fas fa-handshake me-1"></i>Tenho Interesse</a>`
       : `<button class="btn btn-secondary w-100" disabled>Indisponível</button>`;
     const combustivel = e.combustivel
       ? `<p class="small text-muted mb-3">Combustível: ${e.combustivel}</p>` : '';
@@ -473,48 +435,6 @@ function renderizarCatalogo() {
         </div>
       </div>`;
   }).join('');
-}
-
-/* ── Modal interesse ─────────────────────────────────────────── */
-function abrirInteresse(id, nome) {
-  document.getElementById('interesseVeiculoId').value = id;
-  document.getElementById('interesseNomeVeiculo').textContent = nome;
-  document.getElementById('interesseNome').value     = '';
-  document.getElementById('interesseTelefone').value = '';
-  document.getElementById('interesseErro').style.display = 'none';
-  new bootstrap.Modal(document.getElementById('modalInteresse')).show();
-}
-
-async function enviarInteresse() {
-  const id       = document.getElementById('interesseVeiculoId').value;
-  const nome     = document.getElementById('interesseNome').value.trim();
-  const telefone = document.getElementById('interesseTelefone').value.trim();
-  const erroEl   = document.getElementById('interesseErro');
-
-  if (!nome || !telefone) {
-    erroEl.textContent = 'Preencha nome e telefone.';
-    erroEl.style.display = 'block';
-    return;
-  }
-
-  try {
-    const res  = await fetch('/api/public/reservas', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ embarcacao_id: id, cliente_nome: nome, cliente_telefone: telefone })
-    });
-    const data = await res.json();
-    if (res.ok) {
-      bootstrap.Modal.getInstance(document.getElementById('modalInteresse')).hide();
-      mostrarToast('✅ ' + data.mensagem);
-    } else {
-      erroEl.textContent = data.erro || 'Erro ao enviar.';
-      erroEl.style.display = 'block';
-    }
-  } catch(e) {
-    erroEl.textContent = 'Erro de conexão.';
-    erroEl.style.display = 'block';
-  }
 }
 
 /* ── Contato footer ──────────────────────────────────────────── */

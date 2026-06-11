@@ -23,7 +23,7 @@ app.use(session({
 
 // ── Estáticos ─────────────────────────────────────────────────
 app.use('/css',     express.static(path.join(__dirname, '../frontend/css')));
-app.use('/assets',  express.static(path.join(__dirname, '../frontend/assets')));
+app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // ── API ───────────────────────────────────────────────────────
