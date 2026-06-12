@@ -380,6 +380,11 @@ section{
 /* =========================================================
    QUEM SOMOS
 ========================================================= */
+#quem-somos {
+    
+    scroll-margin-top: 80px;
+}
+
 .quem-somos-premium{
 
     padding:120px 0;
@@ -712,6 +717,11 @@ section{
 /* =========================================================
    CARDS
 ========================================================= */
+#avaliacoes {
+    
+    scroll-margin-top: 80px;
+}
+
 .card,
 .card-avaliacao {
     overflow: visible;
