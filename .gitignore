@@ -1,13 +1,6 @@
-# Dependências
 backend/node_modules/
-
-# Variáveis de ambiente
 .env
 backend/.env
-
-# Uploads enviados pelos usuários (não commitar no git)
 backend/uploads/
-
-# Sistema
 .DS_Store
 Thumbs.db

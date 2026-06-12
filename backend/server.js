@@ -11,8 +11,9 @@ const apiRoutes = require('./routes/api');
 const app  = express();
 const PORT = process.env.PORT || 3001;
 
-// Em produção, usa a URL do Railway; em dev, usa localhost
 const allowedOrigin = process.env.APP_URL || `http://localhost:${PORT}`;
+
+app.set('trust proxy', 1); // necessário no Render (proxy reverso)
 
 app.use(cors({ origin: allowedOrigin, credentials: true }));
 app.use(express.json());
@@ -23,16 +24,17 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure:   process.env.NODE_ENV === 'production', // HTTPS em produção
+        secure:   process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         maxAge:   1000 * 60 * 60 * 8
     }
 }));
 
 // ── Estáticos ─────────────────────────────────────────────────
-app.use('/css',      express.static(path.join(__dirname, '../frontend/css')));
-app.use('/js',       express.static(path.join(__dirname, '../frontend/js')));
-app.use('/assets',   express.static(path.join(__dirname, '../frontend/assets')));
-app.use('/uploads',  express.static(path.join(__dirname, 'uploads')));
+app.use('/css',     express.static(path.join(__dirname, '../frontend/css')));
+app.use('/js',      express.static(path.join(__dirname, '../frontend/js')));
+app.use('/assets',  express.static(path.join(__dirname, '../frontend/assets')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ── API ───────────────────────────────────────────────────────
 app.use('/api', apiRoutes);
@@ -51,9 +53,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`\n⚓  WAVE CLUB — Servidor iniciado\n`);
-    console.log(`🌐  Site público:    http://localhost:${PORT}/`);
-    console.log(`🔐  Login:           http://localhost:${PORT}/login`);
-    console.log(`🛠️   Dashboard Admin: http://localhost:${PORT}/dashboard`);
-    console.log(`👤  Painel Usuário:  http://localhost:${PORT}/painel\n`);
+    console.log(`\n⚓  WAVE CLUB — Servidor iniciado`);
+    console.log(`🌐  http://localhost:${PORT}/\n`);
 });
