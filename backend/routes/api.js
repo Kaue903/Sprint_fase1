@@ -24,6 +24,10 @@ router.post('/public/reservas',   ReservaController.criar);
 router.get('/embarcacoes',     autenticado, EmbarcacaoController.listar);
 router.get('/embarcacoes/:id', autenticado, EmbarcacaoController.buscarUm);
 
+// ── USUÁRIO — pedidos de aluguel ────────────────────────────────
+router.post('/reservas',         autenticado, ReservaController.criarAutenticada);
+router.get('/minhas-reservas',   autenticado, ReservaController.listarMinhas);
+
 // ── ADMIN — escrita ───────────────────────────────────────────
 router.post('/embarcacoes',
     autenticado, apenasAdmin,
@@ -46,6 +50,7 @@ router.delete('/embarcacoes/:id',
 // ── ADMIN — painel ────────────────────────────────────────────
 router.get('/admin/estatisticas', autenticado, apenasAdmin, EmbarcacaoController.estatisticas);
 router.get('/admin/reservas',     autenticado, apenasAdmin, ReservaController.listar);
+router.put('/admin/reservas/:id/status', autenticado, apenasAdmin, ReservaController.atualizarStatus);
 router.delete('/admin/reservas/:id', autenticado, apenasAdmin, ReservaController.deletar);
 
 module.exports = router;
