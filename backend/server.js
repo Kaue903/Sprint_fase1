@@ -11,20 +11,28 @@ const apiRoutes = require('./routes/api');
 const app  = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({ origin: `http://localhost:${PORT}`, credentials: true }));
+// Em produção, usa a URL do Railway; em dev, usa localhost
+const allowedOrigin = process.env.APP_URL || `http://localhost:${PORT}`;
+
+app.use(cors({ origin: allowedOrigin, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret:            process.env.SESSION_SECRET || 'waveclub_secret',
     resave:            false,
     saveUninitialized: false,
-    cookie: { httpOnly: true, secure: false, maxAge: 1000 * 60 * 60 * 8 }
+    cookie: {
+        httpOnly: true,
+        secure:   process.env.NODE_ENV === 'production', // HTTPS em produção
+        maxAge:   1000 * 60 * 60 * 8
+    }
 }));
 
 // ── Estáticos ─────────────────────────────────────────────────
-app.use('/css',     express.static(path.join(__dirname, '../frontend/css')));
-app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/css',      express.static(path.join(__dirname, '../frontend/css')));
+app.use('/js',       express.static(path.join(__dirname, '../frontend/js')));
+app.use('/assets',   express.static(path.join(__dirname, '../frontend/assets')));
+app.use('/uploads',  express.static(path.join(__dirname, 'uploads')));
 
 // ── API ───────────────────────────────────────────────────────
 app.use('/api', apiRoutes);
