@@ -54,6 +54,12 @@
 
     /* Reservas */
     .reserva-row { border-left:3px solid #6EACDA; padding-left:.75rem; margin-bottom:.6rem; }
+    .reserva-row.status-pendente  { border-left-color:#FFC107; }
+    .reserva-row.status-aprovado  { border-left-color:#28A745; }
+    .reserva-row.status-rejeitado { border-left-color:#DC3545; }
+    .badge-status-aluguel.pendente  { background:#FFC107; color:#212529; }
+    .badge-status-aluguel.aprovado  { background:#28A745; color:#fff; }
+    .badge-status-aluguel.rejeitado { background:#DC3545; color:#fff; }
 
     @media(max-width:768px) {
       .tabela-admin thead { display:none; }
@@ -672,16 +678,75 @@ async function carregarReservas() {
     }
 
     container.innerHTML = reservas.map(r => {
-      const data = new Date(r.criado_em).toLocaleDateString('pt-BR');
+      const dataPedido = new Date(r.criado_em).toLocaleString('pt-BR');
+      const ehAluguel = r.tipo_solicitacao === 'aluguel';
+
+      const badgeTipo = ehAluguel
+        ? '<span class="badge bg-success ms-2"><i class="fas fa-key me-1"></i>Aluguel</span>'
+        : '<span class="badge bg-secondary ms-2"><i class="fas fa-handshake me-1"></i>Interesse</span>';
+
+      const detalhesAluguel = ehAluguel ? `
+          <div class="text-muted small mt-1">
+            <i class="fas fa-calendar-alt me-1"></i>${formatarData(r.data_inicio)} a ${formatarData(r.data_fim)}
+            (${r.dias} ${r.dias === 1 ? 'diária' : 'diárias'})
+            &nbsp;|&nbsp;
+            <i class="fas fa-credit-card me-1"></i>${r.forma_pagamento || '—'}
+            &nbsp;|&nbsp;
+            <strong class="text-success">Total: R$ ${parseFloat(r.valor_total || 0).toLocaleString('pt-BR', {minimumFractionDigits:2})}</strong>
+          </div>` : '';
+
+      const solicitante = r.usuario_username
+        ? `<div class="text-muted small mt-1"><i class="fas fa-user me-1"></i>Usuário: <strong>${r.usuario_username}</strong></div>`
+        : '';
+
+      const dataPedidoHtml = `<div class="text-muted small mt-1"><i class="fas fa-clock me-1"></i>Pedido em: ${dataPedido}</div>`;
+
+      // Badges/ações específicas para solicitações de aluguel
+      let statusBadge = '';
+      let acoesAluguel = '';
+      let motivoHtml   = '';
+      let rowStatusCls = '';
+
+      if (ehAluguel) {
+        const statusInfo = {
+          pendente:  { label: 'Pendente',  cls: 'pendente'  },
+          aprovado:  { label: 'Aprovado',  cls: 'aprovado'  },
+          rejeitado: { label: 'Recusado',  cls: 'rejeitado' }
+        }[r.status] || { label: r.status || 'Pendente', cls: 'pendente' };
+
+        rowStatusCls = `status-${statusInfo.cls}`;
+        statusBadge  = `<span class="badge badge-status-aluguel ${statusInfo.cls} ms-2">${statusInfo.label}</span>`;
+
+        if ((r.status || 'pendente') === 'pendente') {
+          acoesAluguel = `
+            <button class="btn btn-success btn-sm" onclick="responderReserva(${r.id},'aprovado')">
+              <i class="fas fa-check"></i> Autorizar
+            </button>
+            <button class="btn btn-outline-danger btn-sm" onclick="responderReserva(${r.id},'rejeitado')">
+              <i class="fas fa-times"></i> Recusar
+            </button>`;
+        }
+
+        if (r.status === 'rejeitado' && r.motivo_recusa) {
+          motivoHtml = `<div class="text-danger small mt-1"><i class="fas fa-exclamation-circle me-1"></i>Motivo da recusa: ${r.motivo_recusa}</div>`;
+        }
+      }
+
       return `
-        <div class="reserva-row d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="reserva-row ${rowStatusCls} d-flex justify-content-between align-items-center flex-wrap gap-2">
           <div>
             <span class="fw-bold">${r.cliente_nome}</span>
             <span class="text-muted ms-2">${r.cliente_telefone}</span>
             <span class="badge bg-primary ms-2">${r.tipo}: ${r.modelo}</span>
+            ${badgeTipo}
+            ${statusBadge}
+            ${solicitante}
+            ${dataPedidoHtml}
+            ${detalhesAluguel}
+            ${motivoHtml}
           </div>
           <div class="d-flex align-items-center gap-2">
-            <small class="text-muted">${data}</small>
+            ${acoesAluguel}
             <button class="btn btn-outline-danger btn-sm" onclick="deletarReserva(${r.id})">
               <i class="fas fa-times"></i>
             </button>
@@ -704,6 +769,40 @@ async function deletarReserva(id) {
   } catch(e) { mostrarToast('❌ Erro.', 'err'); }
 }
 
+async function responderReserva(id, status) {
+  let motivo = null;
+
+  if (status === 'rejeitado') {
+    motivo = prompt('Informe o motivo da recusa do aluguel:');
+    if (motivo === null) return; // cancelado
+    motivo = motivo.trim();
+    if (!motivo) {
+      mostrarToast('❌ É necessário informar o motivo da recusa.', 'err');
+      return;
+    }
+  } else {
+    if (!confirm('Confirma a autorização deste pedido de aluguel?')) return;
+  }
+
+  try {
+    const res = await fetch(`/api/admin/reservas/${id}/status`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status, motivo })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      mostrarToast('✅ ' + data.mensagem, 'ok');
+      carregarReservas();
+      carregarEstatisticas();
+      carregarTabela();
+    } else {
+      mostrarToast('❌ ' + (data.erro || 'Erro ao atualizar.'), 'err');
+    }
+  } catch(e) { mostrarToast('❌ Erro de conexão.', 'err'); }
+}
+
 /* ── Simulador ───────────────────────────────────────────────── */
 function calcularOrcamento() {
   const tipo  = document.getElementById('simTipo').value;
@@ -721,6 +820,12 @@ function calcularOrcamento() {
 }
 
 /* ── Utilitários ─────────────────────────────────────────────── */
+function formatarData(dataStr) {
+  if (!dataStr) return '—';
+  const [ano, mes, dia] = String(dataStr).slice(0,10).split('-');
+  return `${dia}/${mes}/${ano}`;
+}
+
 function resolverImagem(imagem) {
   if (!imagem) return '/assets/img/MainIate.jpg';
   if (imagem.startsWith('http')) return imagem;

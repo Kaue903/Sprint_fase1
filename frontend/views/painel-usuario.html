@@ -60,7 +60,7 @@
       position: fixed;
       left: 0; top: 0; bottom: 0;
       width: 68px;
-      background: var(--ocean-mid);
+      background: rgba(8, 43, 99, 0.88);
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
@@ -70,7 +70,7 @@
       gap: .5rem;
     }
     .sidebar-logo {
-      width: 38px; height: 38px;
+      width: 58px; height: 42px;
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: .75rem;
@@ -543,6 +543,26 @@
       outline: none;
     }
     .modal-body .form-control::placeholder { color: rgba(255,255,255,.2); }
+    .modal-body .form-select {
+      background-color: rgba(255,255,255,.05);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%237EA8C5' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      border: 1px solid var(--border-bright);
+      color: var(--text-primary);
+      border-radius: 9px;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    .modal-body .form-select:focus {
+      background-color: rgba(255,255,255,.08);
+      border-color: var(--wave-light);
+      box-shadow: 0 0 0 3px rgba(91,179,224,.15);
+      color: var(--text-primary);
+      outline: none;
+    }
+    .modal-body .form-select option {
+      background: var(--ocean-surface);
+      color: var(--text-primary);
+    }
     .btn-send {
       background: var(--wave);
       border: none;
@@ -585,6 +605,54 @@
     /* ── SPINNER ──────────────────────────────── */
     .spinner-border { color: var(--wave-light) !important; }
  
+    /* ── MINHAS SOLICITAÇÕES ─────────────────── */
+    .solic-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      margin-bottom: .6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .6rem;
+      backdrop-filter: blur(8px);
+    }
+    .solic-info { font-size: .85rem; color: var(--text-muted); }
+    .solic-info strong { color: var(--text-primary); }
+    .solic-status {
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .solic-status.pendente {
+      background: rgba(212,169,78,.15);
+      border: 1px solid rgba(212,169,78,.4);
+      color: var(--gold-light);
+    }
+    .solic-status.aprovado {
+      background: rgba(0,200,120,.15);
+      border: 1px solid rgba(0,200,120,.4);
+      color: #4DEBB0;
+    }
+    .solic-status.rejeitado {
+      background: rgba(220,60,80,.12);
+      border: 1px solid rgba(220,60,80,.35);
+      color: #F0708A;
+    }
+    .solic-motivo {
+      flex-basis: 100%;
+      font-size: .8rem;
+      color: #F0708A;
+      margin-top: .2rem;
+    }
+
     /* ── EMPTY STATE ──────────────────────────── */
     .empty-state {
       grid-column: 1 / -1;
@@ -616,7 +684,7 @@
 <!-- ── SIDEBAR ──────────────────────────────────────────── -->
 <nav class="sidebar">
   <div class="sidebar-logo">
-    <img src="/assets/img/logo.png" alt="Wave Club" onerror="this.style.display='none'">
+    <img src="/assets/img/logo2.png" alt="Wave Club" onerror="this.style.display='none'">
   </div>
   <div class="sidebar-divider"></div>
   <a class="sidebar-link active" href="#" title="Catálogo">
@@ -653,6 +721,17 @@
 <main class="main-content">
   <div class="content-inner">
  
+    <!-- Minhas Solicitações de Aluguel -->
+    <div class="section-label">
+      <div class="icon-pill"><i class="fas fa-clipboard-list"></i></div>
+      <h2>Minhas Solicitações</h2>
+      <div class="line"></div>
+    </div>
+
+    <div id="minhasReservasContainer" class="mb-4">
+      <p style="color:var(--text-dim);font-size:.85rem;">Carregando…</p>
+    </div>
+
     <!-- Destaques -->
     <div class="section-label">
       <div class="icon-pill"><i class="fas fa-star"></i></div>
@@ -695,38 +774,71 @@
   </div>
 </main>
  
-<!-- ── MODAL INTERESSE ───────────────────────────────────── -->
-<div class="modal fade" id="modalInteresse" tabindex="-1" aria-hidden="true">
+<!-- ── MODAL ALUGUE ──────────────────────────────────────── -->
+<div class="modal fade" id="modalAlugar" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <div>
           <div class="modal-title">
-            <i class="fas fa-handshake me-2" style="color:var(--wave-light);"></i>Tenho Interesse
+            <i class="fas fa-key me-2" style="color:var(--wave-light);"></i>Alugar Embarcação
           </div>
-          <div class="modal-subtitle" id="interesseNomeModal">—</div>
+          <div class="modal-subtitle" id="alugarNomeModal">—</div>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body p-4">
-        <input type="hidden" id="interesseId">
+        <input type="hidden" id="alugarId">
+        <input type="hidden" id="alugarPreco">
         <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:1.25rem;">
-          Preencha seus dados e nossa equipe entrará em contato em breve.
+          Escolha o período, a forma de pagamento e confirme seus dados de contato.
         </p>
+
         <div class="mb-3">
           <label class="form-label">Nome completo</label>
-          <input type="text" class="form-control" id="interesseNome" placeholder="Seu nome">
+          <input type="text" class="form-control" id="alugarNome" placeholder="Seu nome">
         </div>
         <div class="mb-3">
           <label class="form-label">WhatsApp</label>
-          <input type="text" class="form-control" id="interesseTelefone" placeholder="(11) 99999-9999">
+          <input type="text" class="form-control" id="alugarTelefone" placeholder="(11) 99999-9999">
         </div>
-        <p id="interesseErro" class="text-danger small mb-0" style="display:none;"></p>
+
+        <div class="row g-2 mb-3">
+          <div class="col-sm-6">
+            <label class="form-label">Data de início</label>
+            <input type="date" class="form-control" id="alugarDataInicio" onchange="atualizarResumoAluguel()">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Data de término</label>
+            <input type="date" class="form-control" id="alugarDataFim" onchange="atualizarResumoAluguel()">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Forma de pagamento</label>
+          <select class="form-select" id="alugarPagamento">
+            <option value="">Selecione…</option>
+            <option value="Pix">Pix</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Cartão de Débito">Cartão de Débito</option>
+            <option value="Boleto">Boleto</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </select>
+        </div>
+
+        <div id="alugarResumo" class="p-3 rounded mb-2" style="background:rgba(255,255,255,.05);border:1px solid var(--border);display:none;">
+          <div class="d-flex justify-content-between"><span style="color:var(--text-muted);">Diárias</span><strong id="resumoDias">—</strong></div>
+          <div class="d-flex justify-content-between"><span style="color:var(--text-muted);">Preço/dia</span><strong id="resumoPreco">—</strong></div>
+          <hr class="my-2" style="border-color:var(--border);">
+          <div class="d-flex justify-content-between"><span style="color:var(--text-muted);">Total</span><strong id="resumoTotal" style="color:var(--wave-light);">—</strong></div>
+        </div>
+
+        <p id="alugarErro" class="text-danger small mb-0" style="display:none;"></p>
       </div>
       <div class="modal-footer gap-2">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn-send" onclick="enviarInteresse()">
-          <i class="fas fa-paper-plane me-1"></i>Enviar
+        <button type="button" class="btn-send" onclick="enviarAluguel()">
+          <i class="fas fa-paper-plane me-1"></i>Confirmar Aluguel
         </button>
       </div>
     </div>
@@ -749,6 +861,7 @@ let tipoAtivo = '';
 document.addEventListener('DOMContentLoaded', async () => {
   await verificarUsuario();
   await carregarEmbarcacoes();
+  await carregarMinhasReservas();
 });
  
 async function verificarUsuario() {
@@ -778,6 +891,52 @@ async function carregarEmbarcacoes() {
     document.getElementById('gridCatalogo').innerHTML =
       '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Erro ao carregar embarcações.</p></div>';
   }
+}
+
+async function carregarMinhasReservas() {
+  const container = document.getElementById('minhasReservasContainer');
+  try {
+    const res = await fetch('/api/minhas-reservas', { credentials:'include' });
+    const lista = await res.json();
+
+    if (!Array.isArray(lista) || !lista.length) {
+      container.innerHTML = '<p style="color:var(--text-dim);font-size:.85rem;">Você ainda não fez nenhuma solicitação de aluguel.</p>';
+      return;
+    }
+
+    container.innerHTML = lista.map(r => {
+      const dataPedido = new Date(r.criado_em).toLocaleString('pt-BR');
+      const statusInfo = {
+        pendente:  { label: 'Aguardando aprovação', cls: 'pendente' },
+        aprovado:  { label: 'Aprovado',             cls: 'aprovado' },
+        rejeitado: { label: 'Recusado',             cls: 'rejeitado' }
+      }[r.status] || { label: r.status, cls: 'pendente' };
+
+      const motivo = (r.status === 'rejeitado' && r.motivo_recusa)
+        ? `<div class="solic-motivo"><i class="fas fa-exclamation-circle me-1"></i>Motivo da recusa: ${r.motivo_recusa}</div>`
+        : '';
+
+      return `
+        <div class="solic-card">
+          <div class="solic-info">
+            <strong>${r.tipo}: ${r.modelo}</strong>
+            &nbsp;|&nbsp; ${formatarDataSimples(r.data_inicio)} a ${formatarDataSimples(r.data_fim)}
+            (${r.dias} ${r.dias === 1 ? 'diária' : 'diárias'})
+            &nbsp;|&nbsp; Solicitado em ${dataPedido}
+          </div>
+          <span class="solic-status ${statusInfo.cls}">${statusInfo.label}</span>
+          ${motivo}
+        </div>`;
+    }).join('');
+  } catch(e) {
+    container.innerHTML = '<p class="text-danger" style="font-size:.85rem;">Erro ao carregar suas solicitações.</p>';
+  }
+}
+
+function formatarDataSimples(dataStr) {
+  if (!dataStr) return '—';
+  const d = new Date(dataStr);
+  return isNaN(d) ? '—' : d.toLocaleDateString('pt-BR');
 }
  
 function renderizarDestaques() {
@@ -827,8 +986,8 @@ function cardHTML(e, compact) {
   const combustivel = e.combustivel
     ? `<div class="spec-item"><i class="fas fa-gas-pump"></i><span>${e.combustivel}</span></div>` : '';
   const btn = disponivel
-    ? `<button class="btn-interesse" onclick="abrirInteresse(${e.id},'${e.modelo.replace(/'/g,"\\'")}')">
-         <i class="fas fa-handshake"></i>Tenho Interesse
+    ? `<button class="btn-interesse" onclick="abrirAlugar(${e.id},'${e.modelo.replace(/'/g,"\\'")}',${parseFloat(e.preco_diaria)})">
+         <i class="fas fa-key"></i>Alugue
        </button>`
     : `<button class="btn-unavailable" disabled>Indisponível</button>`;
  
@@ -857,35 +1016,97 @@ function cardHTML(e, compact) {
     </div>`;
 }
  
-function abrirInteresse(id, nome) {
-  document.getElementById('interesseId').value              = id;
-  document.getElementById('interesseNomeModal').textContent = nome;
-  document.getElementById('interesseNome').value            = '';
-  document.getElementById('interesseTelefone').value        = '';
-  document.getElementById('interesseErro').style.display    = 'none';
-  new bootstrap.Modal(document.getElementById('modalInteresse')).show();
+function abrirAlugar(id, nome, preco) {
+  document.getElementById('alugarId').value              = id;
+  document.getElementById('alugarPreco').value           = preco;
+  document.getElementById('alugarNomeModal').textContent = nome;
+  document.getElementById('alugarNome').value            = document.getElementById('nomeUsuario').textContent || '';
+  document.getElementById('alugarTelefone').value        = '';
+  document.getElementById('alugarPagamento').value       = '';
+
+  const hoje = new Date().toISOString().slice(0,10);
+  document.getElementById('alugarDataInicio').value = hoje;
+  document.getElementById('alugarDataInicio').min   = hoje;
+  document.getElementById('alugarDataFim').value    = hoje;
+  document.getElementById('alugarDataFim').min      = hoje;
+
+  document.getElementById('alugarErro').style.display  = 'none';
+  document.getElementById('alugarResumo').style.display = 'none';
+
+  new bootstrap.Modal(document.getElementById('modalAlugar')).show();
 }
- 
-async function enviarInteresse() {
-  const id       = document.getElementById('interesseId').value;
-  const nome     = document.getElementById('interesseNome').value.trim();
-  const telefone = document.getElementById('interesseTelefone').value.trim();
-  const erroEl   = document.getElementById('interesseErro');
-  if (!nome || !telefone) {
-    erroEl.textContent   = 'Preencha nome e telefone.';
+
+function atualizarResumoAluguel() {
+  const inicioStr = document.getElementById('alugarDataInicio').value;
+  const fimStr    = document.getElementById('alugarDataFim').value;
+  const preco     = parseFloat(document.getElementById('alugarPreco').value) || 0;
+  const resumo    = document.getElementById('alugarResumo');
+
+  // garante que a data final não seja anterior à inicial
+  if (inicioStr) document.getElementById('alugarDataFim').min = inicioStr;
+
+  if (!inicioStr || !fimStr) { resumo.style.display = 'none'; return; }
+
+  const inicio = new Date(inicioStr);
+  const fim    = new Date(fimStr);
+  if (isNaN(inicio) || isNaN(fim) || fim < inicio) { resumo.style.display = 'none'; return; }
+
+  const dias  = Math.max(1, Math.round((fim - inicio) / 86400000) + 1);
+  const total = dias * preco;
+
+  document.getElementById('resumoDias').textContent  = dias + (dias === 1 ? ' diária' : ' diárias');
+  document.getElementById('resumoPreco').textContent = 'R$ ' + preco.toLocaleString('pt-BR', {minimumFractionDigits:2});
+  document.getElementById('resumoTotal').textContent = 'R$ ' + total.toLocaleString('pt-BR', {minimumFractionDigits:2});
+  resumo.style.display = 'block';
+}
+
+async function enviarAluguel() {
+  const id        = document.getElementById('alugarId').value;
+  const nome      = document.getElementById('alugarNome').value.trim();
+  const telefone  = document.getElementById('alugarTelefone').value.trim();
+  const pagamento = document.getElementById('alugarPagamento').value;
+  const dataInicio= document.getElementById('alugarDataInicio').value;
+  const dataFim   = document.getElementById('alugarDataFim').value;
+  const erroEl    = document.getElementById('alugarErro');
+
+  if (!nome || !telefone || !pagamento || !dataInicio || !dataFim) {
+    erroEl.textContent   = 'Preencha todos os campos para continuar.';
     erroEl.style.display = 'block';
     return;
   }
+  if (new Date(dataFim) < new Date(dataInicio)) {
+    erroEl.textContent   = 'A data de término não pode ser anterior à data de início.';
+    erroEl.style.display = 'block';
+    return;
+  }
+
+  erroEl.style.display = 'none';
+
+  // calcula dias para enviar junto (backend também recalcula, mas evita ambiguidade)
+  const inicio = new Date(dataInicio);
+  const fim    = new Date(dataFim);
+  const dias   = Math.max(1, Math.round((fim - inicio) / 86400000) + 1);
+
   try {
-    const res  = await fetch('/api/public/reservas', {
+    const res  = await fetch('/api/reservas', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify({ embarcacao_id: id, cliente_nome: nome, cliente_telefone: telefone })
+      body: JSON.stringify({
+        embarcacao_id:    parseInt(id, 10),
+        cliente_nome:     nome,
+        cliente_telefone: telefone,
+        forma_pagamento:  pagamento,
+        data_inicio:      dataInicio,
+        data_fim:         dataFim,
+        dias:             dias
+      })
     });
     const data = await res.json();
     if (res.ok) {
-      bootstrap.Modal.getInstance(document.getElementById('modalInteresse')).hide();
+      bootstrap.Modal.getInstance(document.getElementById('modalAlugar')).hide();
       mostrarToast('✅ ' + data.mensagem, 'ok');
+      carregarMinhasReservas();
     } else {
       erroEl.textContent   = data.erro || 'Erro ao enviar.';
       erroEl.style.display = 'block';
