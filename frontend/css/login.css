@@ -92,7 +92,7 @@ body::after{
         rgba(2,21,38,0.78),
         rgba(2,21,38,0.88)
     ),
-    url('/Imagens/MainIate.jpg')
+    url('/assets/img/MainIate.jpg')
     center center/cover no-repeat;
 
     opacity:.18;
@@ -477,7 +477,7 @@ html[data-theme="light"] .info-box p{
 
     transition:.3s ease;
 
-    content:url('/Imagens/logo2.png');
+    content:url('/assets/img/logo2.png');
 }
 
 /* =========================================================
@@ -485,7 +485,7 @@ html[data-theme="light"] .info-box p{
 ========================================================= */
 html[data-theme="light"] .logo-login{
 
-    content:url('/Imagens/logo3.png');
+    content:url('/assets/img/logo3.png');
 }
 /* =========================================================
    RESPONSIVO

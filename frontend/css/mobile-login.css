@@ -1,0 +1,40 @@
+/* =========================================================
+   WAVE CLUB — RESPONSIVIDADE MOBILE (login)
+   Arquivo aditivo: carregar DEPOIS de login.css e global.css.
+========================================================= */
+
+/* Em telas baixas (teclado aberto, celular em paisagem etc.)
+   o body tinha overflow:hidden, o que cortava o card.
+   Liberamos a rolagem vertical só quando necessário. */
+@media (max-width: 576px), (max-height: 700px){
+    body{
+        overflow-y: auto;
+        align-items: flex-start !important;
+        padding-top: 2.5rem !important;
+    }
+}
+
+@media (max-width: 400px){
+    .card-header{
+        padding: 16px !important;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-title{
+        font-size: .9rem;
+    }
+
+    .card-body{
+        padding: 20px 16px !important;
+    }
+
+    .alert-warning{
+        font-size: .82rem;
+    }
+
+    .btn-login{
+        height: 50px;
+        font-size: .9rem;
+    }
+}

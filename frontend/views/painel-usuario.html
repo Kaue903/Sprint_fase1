@@ -678,6 +678,7 @@
       .catalog-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="/css/mobile-painel.css">
 </head>
 <body>
  
@@ -704,6 +705,9 @@
 <!-- ── TOPBAR ────────────────────────────────────────────── -->
 <header class="topbar">
   <div class="topbar-title">Wave <span>Club</span></div>
+  <a href="/" class="topbar-home-link" title="Site público">
+    <i class="fas fa-globe"></i>
+  </a>
   <div class="topbar-search">
     <i class="fas fa-search"></i>
     <input type="text" id="inputBusca" placeholder="Buscar embarcação…" oninput="aplicarFiltros()">

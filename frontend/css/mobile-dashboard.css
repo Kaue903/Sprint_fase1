@@ -1,0 +1,148 @@
+/* =========================================================
+   WAVE CLUB — RESPONSIVIDADE MOBILE (dashboard admin)
+   Arquivo aditivo: carregar DEPOIS de dashboard.css.
+   Complementa o @media já existente no <style> do dashboard.html.
+========================================================= */
+
+/* =========================================================
+   HEADER
+========================================================= */
+@media (max-width: 576px){
+    .bg-primary.text-white.px-4.py-3{
+        padding: .8rem 1rem !important;
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    .bg-primary.text-white.px-4.py-3 h5{
+        font-size: .95rem;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .bg-primary.text-white.px-4.py-3 > div.d-flex{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   CARDS DE ESTATÍSTICA
+========================================================= */
+@media (max-width: 576px){
+    .stat-card{
+        padding: .8rem 1rem;
+    }
+
+    .stat-num{
+        font-size: 1.5rem;
+    }
+
+    .stat-lbl{
+        font-size: .68rem;
+    }
+}
+
+/* =========================================================
+   CARD HEADERS (genérico, evita quebra feia em telas pequenas)
+========================================================= */
+@media (max-width: 480px){
+    .card-header.d-flex,
+    .card-header[style*="background:#03346E"]{
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: .4rem;
+    }
+}
+
+/* =========================================================
+   TABELA DE EMBARCAÇÕES — modo "card" no mobile
+   (complementa o @media já existente no dashboard.html)
+========================================================= */
+@media (max-width: 768px){
+    /* a regra .tabela-admin{min-width:700px} (usada no modo desktop
+       com rolagem horizontal) precisa ser anulada aqui, senão o
+       conteúdo de cada "card" fica largo demais e os valores saem
+       da área visível */
+    .tabela-admin{
+        min-width: 0 !important;
+    }
+
+    .table-responsive{
+        overflow-x: visible;
+    }
+
+    /* mostra o nome do campo antes do valor, exceto na foto e ações */
+    .tabela-admin td[data-label]::before{
+        content: attr(data-label);
+        font-weight: 700;
+        color: #64748b;
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-right: .75rem;
+    }
+
+    .tabela-admin td[data-label="Foto"]{
+        justify-content: center !important;
+    }
+
+    .tabela-admin td[data-label="Foto"]::before{
+        display: none;
+    }
+
+    .tabela-admin td[data-label="Ações"]{
+        justify-content: center !important;
+        gap: .4rem;
+        flex-wrap: wrap;
+    }
+
+    .tabela-admin td[data-label="Ações"]::before{
+        display: none;
+    }
+
+    .tabela-admin img{
+        width: 100%;
+        max-width: 220px;
+        height: 140px;
+    }
+}
+
+/* =========================================================
+   RESERVAS / INTERESSES
+========================================================= */
+@media (max-width: 576px){
+    .reserva-row{
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .reserva-row > div:last-child{
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .reserva-row .btn-sm{
+        font-size: .78rem;
+    }
+}
+
+/* =========================================================
+   FORMULÁRIOS (cadastrar / editar)
+========================================================= */
+@media (max-width: 480px){
+    .admin-form .form-label{
+        font-size: .8rem;
+    }
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+@media (max-width: 480px){
+    .toast-wave{
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+    }
+}

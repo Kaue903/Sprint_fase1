@@ -8,8 +8,25 @@
 | `backend/config/db.js`                          | `backend/config/db.js`                         |
 | `backend/controllers/ReservaController.js`      | `backend/controllers/ReservaController.js`     |
 | `frontend/views/painel-usuario.html`            | `frontend/views/painel-usuario.html`           |
+| `frontend/views/index.html`                     | `frontend/views/index.html` (mobile)           |
+| `frontend/views/login.html`                     | `frontend/views/login.html` (mobile)           |
+| `frontend/views/dashboard.html`                 | `frontend/views/dashboard.html` (mobile)       |
+| _(novo)_ `frontend/css/mobile-*.css`             | 4 arquivos novos de responsividade             |
 | _(novo)_ `.gitignore`                           | `.gitignore`                                   |
 | _(novo)_ `render.yaml`                          | `render.yaml`                                  |
+
+> Se você já tem o projeto num repositório Git, é mais simples eu te passar o `.zip` completo e você substituir a pasta toda — assim não corre risco de esquecer algum arquivo.
+
+---
+
+## ⚠️ Sobre custos (atualizado — jun/2026)
+
+Vale alinhar a expectativa antes de começar:
+
+- **Render (backend + frontend)**: o plano free ainda existe, sem cartão de crédito. Ele **hiberna depois de 15 min sem acesso** e demora ~1 min para "acordar" na próxima requisição. Para uma entrega de TCC/sprint isso é normal e aceitável.
+- **Railway (banco MySQL)**: a Railway **não tem mais plano gratuito permanente**. Hoje funciona assim: ao criar a conta você recebe um trial único de 30 dias com US$5 em créditos; depois disso, o plano gratuito dá apenas US$1/mês de crédito — geralmente insuficiente para manter um banco MySQL ativo o tempo todo. Para manter o banco no ar de forma contínua depois do trial, o caminho realista é o plano Hobby (US$5/mês).
+
+Para fins de entrega acadêmica isso não é problema (o trial de 30 dias cobre demonstrações e a banca), mas se a ideia é manter o Wave Club no ar por mais tempo sem custo, me avisa que posso te ajudar a adaptar o projeto para usar um banco gratuito alternativo (ex: Aiven for MySQL ou um Postgres gratuito do próprio Render, trocando a camada de acesso a dados).
 
 ---
 
@@ -82,8 +99,9 @@ Usuários criados:
 
 ---
 
-## ⚠️ Observações
+## ⚠️ Observações finais
 
-- O Render no plano gratuito **hiberna após 15 min** sem acesso — a primeira requisição pode demorar ~30s para acordar. No plano pago isso não ocorre.
-- Uploads de imagem são temporários no Render (sistema de arquivos reinicia a cada deploy). Para produção real, use Cloudinary.
-- Troque as senhas padrão após o primeiro acesso.
+- Uploads de imagem são temporários no Render (sistema de arquivos reinicia a cada deploy/spin-down). Para produção real, use Cloudinary ou outro storage externo.
+- Troque as senhas padrão (`admin123` / `user123`) após o primeiro acesso real.
+- Se o Render "dormir" antes de uma apresentação, acesse a URL ~1 minuto antes para "acordar" o serviço.
+

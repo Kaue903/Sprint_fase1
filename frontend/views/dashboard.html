@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="/css/dashboard.css" rel="stylesheet">
+  <link href="/css/mobile-dashboard.css" rel="stylesheet">
   <link rel="icon" href="/assets/img/logofavicon.png">
   <style>
     body { background: #f8fafc; font-family: 'Open Sans', sans-serif; }
@@ -452,13 +453,13 @@ async function carregarTabela() {
         ? '<span class="badge badge-disp">Disponível</span>'
         : '<span class="badge badge-alugado">Alugado</span>';
       return `<tr>
-        <td class="ps-3"><img src="${capa}" alt="${e.modelo}"></td>
-        <td>${e.tipo}</td>
-        <td><strong>${e.modelo}</strong>${e.destaque?'<span class="badge bg-warning text-dark ms-1">Exclusivo</span>':''}</td>
-        <td class="text-muted" style="font-size:.85rem;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${e.incluso}</td>
-        <td>R$${parseFloat(e.preco_diaria).toLocaleString('pt-BR')}</td>
-        <td>${badge}</td>
-        <td class="text-end pe-3" style="white-space:nowrap;">
+        <td class="ps-3" data-label="Foto"><img src="${capa}" alt="${e.modelo}"></td>
+        <td data-label="Tipo">${e.tipo}</td>
+        <td data-label="Modelo"><strong>${e.modelo}</strong>${e.destaque?'<span class="badge bg-warning text-dark ms-1">Exclusivo</span>':''}</td>
+        <td class="text-muted" data-label="Incluso" style="font-size:.85rem;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${e.incluso}</td>
+        <td data-label="Preço/dia">R$${parseFloat(e.preco_diaria).toLocaleString('pt-BR')}</td>
+        <td data-label="Status">${badge}</td>
+        <td class="text-end pe-3" data-label="Ações" style="white-space:nowrap;">
           <button class="btn btn-outline-primary btn-sm" onclick="abrirEditar(${e.id})" title="Editar">
             <i class="fas fa-edit"></i>
           </button>
